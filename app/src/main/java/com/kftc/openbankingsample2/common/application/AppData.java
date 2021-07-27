@@ -93,7 +93,7 @@ public class AppData extends Application {
     public static String getCenterAuthAccessToken(Scope scope) {
         List<AccessToken> accessTokenList = getCenterAuthAccessTokenList(scope);
         if (accessTokenList.isEmpty()) {
-            return "";
+            return " ";
         }
 
         return accessTokenList.get(0).getAccess_token();

@@ -29,11 +29,14 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     // context
     private Context context;
     protected MainActivity activity;
+    public String coin;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
+        this.coin= super.coin;
 
         // 메인액티빅티 개체 연결
         activity = (MainActivity) getActivity();

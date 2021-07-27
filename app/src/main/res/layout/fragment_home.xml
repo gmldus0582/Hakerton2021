@@ -12,15 +12,28 @@
     <!--메인-->
     <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
         <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
-
+            <EditText
+                android:id="@+id/etToken"
+                style="@style/FormValue02"
+                android:inputType="text"
+                android:maxLines="1" />
+<!--            <Button-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:id="@+id/btnCenterAuth"-->
+<!--                style="@style/Button01"-->
+<!--                android:layout_width="280dp"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:textSize="25sp"-->
+<!--                android:text="로그인"/>-->
             <Button
-                android:layout_marginTop="50dp"
-                android:id="@+id/btnCenterAuth"
-                style="@style/Button01"
-                android:layout_width="280dp"
-                android:layout_height="150dp"
-                android:textSize="25sp"
-                android:text="로그인"/>
+                android:id="@+id/btnSelectToken"
+                style="@style/ButtonFold"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="3dp"
+                android:text="선택" />
+
 
             <Button
                 android:layout_marginTop="50dp"

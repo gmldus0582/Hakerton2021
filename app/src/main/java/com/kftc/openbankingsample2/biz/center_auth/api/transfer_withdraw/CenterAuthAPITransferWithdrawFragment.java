@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,6 +42,7 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
 
     // view
     private View view;
+    String coin;
 
     // data
     private Bundle args;
@@ -52,6 +54,7 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
         super.onCreate(savedInstanceState);
         context = getContext();
         args = getArguments();
+        coin = super.coin;
         if (args == null) args = new Bundle();
     }
 
@@ -64,6 +67,8 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
     }
 
     void initView() {
+
+
 
         // access_token : 가장 최근 액세스 토큰으로 기본 설정
         EditText etToken = view.findViewById(R.id.etToken);
@@ -115,6 +120,10 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
         view.findViewById(R.id.btnSelectFintechUseNum).setOnClickListener(onClickListener);
 
         // 거래금액
+        TextView test1;
+        test1= view.findViewById(R.id.moneyTranAmt);
+        //showAlert("coin:", coin);
+        test1.setText(coin);
         KmUtilMoneyEditText moneyTranAmt = view.findViewById(R.id.moneyTranAmt);
 
         // 요청일시

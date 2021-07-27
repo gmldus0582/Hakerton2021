@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.collection.CircularArray;
 
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
@@ -23,6 +24,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * 잔액조회
@@ -99,7 +110,10 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
             CenterAuthApiRetrofitAdapter.getInstance()
                     .accountBalanceFinNum("Bearer " + accessToken, paramMap)
                     .enqueue(super.handleResponse("balance_amt", "잔액"));
+
+            
         });
+
 
         // 취소
         view.findViewById(R.id.btnCancel).setOnClickListener(v -> onBackPressed());

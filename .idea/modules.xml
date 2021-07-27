@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/openplatform-sample-source.iml" filepath="$PROJECT_DIR$/.idea/modules/openplatform-sample-source.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/openplatform-sample-source.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/openplatform-sample-source.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hakerton2021.iml" filepath="$PROJECT_DIR$/.idea/modules/Hakerton2021.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Hakerton2021.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Hakerton2021.app.iml" />
     </modules>
   </component>
 </project>

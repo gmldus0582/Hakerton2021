@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -112,6 +113,7 @@ public class CenterAuthAPIInquiryReceiveFragment extends AbstractCenterAuthMainF
         view.findViewById(R.id.btnSelectFintechUseNum).setOnClickListener(onClickListener);
 
         // 거래금액
+
         KmUtilMoneyEditText moneyTranAmt = view.findViewById(R.id.moneyTranAmt);
 
         // 요청고객성명

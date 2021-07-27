@@ -1,5 +1,7 @@
 package com.kftc.openbankingsample2.common.data;
 
+import android.app.AlertDialog;
+
 import com.kftc.openbankingsample2.common.Scope;
 
 public class AccessToken {
@@ -102,9 +104,10 @@ public class AccessToken {
 
     @Override
     public String toString() {
-        return "발급일시: " + dateTime +
-                "\nAccess 토큰: " + getAccess_token_alias() +
-                "\nScope: " + scope +
-                (!getUser_seq_no().isEmpty() ? ("\nUser_Seq_No: " + user_seq_no) : ("\nClient_Use_Code: " + getClient_use_code()));
-    }
+            return "발급일시: " + dateTime +
+                    "\nAccess 토큰: " + getAccess_token_alias() +
+                    "\nScope: " + scope +
+                    (!getUser_seq_no().isEmpty() ? ("\nUser_Seq_No: " + user_seq_no) : ("\nClient_Use_Code: " + getClient_use_code()));
+        }
+
 }

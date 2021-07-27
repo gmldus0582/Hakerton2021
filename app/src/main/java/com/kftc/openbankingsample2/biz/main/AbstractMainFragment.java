@@ -55,6 +55,10 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
     // progress
     private KmProgressBar progressBar;
 
+    public String coin="110";
+
+    String coin2;
+
     // listener
     protected interface OnClickListener {
         void onClick(String selectedItem);
@@ -294,10 +298,21 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
 
                 // 금액이면 쉼표와 '원', 건수이면 '건'을 붙여준다.
                 if (key.contains("_amt")) {
-                    value = Utils.moneyForm(value) + "원";
+                    value = Utils.moneyForm(value);
                 } else if (key.contains("_cnt")) {
                     value = Utils.moneyForm(value) + "건";
                 }
+
+                if(key.contains("balance_amt")){
+                    coin2 = value.substring(value.length()-3, value.length());
+                    value = coin2;
+                }
+
+                if(key.contains("tran_amt")){
+                    coin = coin2;
+                    value = coin2;
+                }
+
 
                 if (listener == null) {
                     showAlert("정상", desc + ": " + value, responseJson);
