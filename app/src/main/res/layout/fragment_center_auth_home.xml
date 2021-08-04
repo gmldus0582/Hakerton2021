@@ -14,79 +14,106 @@
 <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
 <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
 
-    
+    <TextView
+        android:id="@+id/textBalance"
+        style="@style/FormValue02"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="잔액"
+        android:textColor="@color/md_black_1000"
+        android:textSize="30dp" />
+
+
+    <!--    <Button-->
+<!--        android:id="@+id/btnInqrBlncPage"-->
+<!--        style="@style/Button01"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="잔액조회" />-->
+    <LinearLayout android:id="@+id/llsubLayout" style="@style/MainLayout"
+        android:orientation="horizontal">
+
     <Button
         android:id="@+id/btnInqrUserInfoPage"
         style="@style/Button01"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="사용자정보조회"
-        android:textSize="18sp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="50dp" />
-    <Button
-        android:id="@+id/btnInqrBlncPage"
-        style="@style/Button01"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:text="잔액조회" />
-
-    <Button
-        android:id="@+id/btnInqrTranRecPage"
-        style="@style/Button01"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
-        android:text="거래내역조회" />
+        android:layout_marginBottom="500dp"
+        android:text="계좌선택"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnTrnsWDPage"
         style="@style/Button01"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="출금이체"
+        android:text="잔액이체"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="15dp" />
+        android:layout_marginBottom="500dp" />
+
+<!--    <Button-->
+<!--        android:id="@+id/btnTransferResult"-->
+<!--        style="@style/Button01"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="이체결과조회" />-->
 
     <Button
-        android:id="@+id/btnTransferResult"
+        android:id="@+id/btnInqrTranRecPage"
         style="@style/Button01"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="이체결과조회" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="500dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="거래내역" />
 
     <Button
         android:id="@+id/btnAutoTrnsWDPage"
         style="@style/Button01"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="500dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="자동이체"
         android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnSelfWithdraw"
+            style="@style/Button01"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="500dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="이체"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

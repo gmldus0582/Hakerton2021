@@ -125,6 +125,8 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
 //            layout.setVisibility(View.INVISIBLE);
 
             view.findViewById(R.id.btnAuthToken).setOnClickListener(v->{
+                startFragment(CenterAuthHomeFragment.class, args, R.string.fragment_id_center);
+                //startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth);
                 setRandomBankTranId(etBankTranId);
                 String accessToken = etToken.getText().toString().trim();
                 Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
@@ -141,6 +143,7 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
                 CenterAuthApiRetrofitAdapter.getInstance()
                         .accountBalanceFinNum("Bearer " + accessToken, paramMap)
                         .enqueue(super.handleResponse("balance_amt", "잔액"));
+
             });
 
 

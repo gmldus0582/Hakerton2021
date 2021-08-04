@@ -1,4 +1,4 @@
-package com.kftc.openbankingsample2.biz.center_auth.api.transfer_withdraw;
+package com.kftc.openbankingsample2.biz.center_auth.api.transfer_self_withdraw;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -32,12 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * 출금이체
- */
-public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMainFragment {
-
-    // context
+public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAuthMainFragment {
     private Context context;
 
     // view
@@ -61,12 +56,15 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_center_auth_api_transfer_withdraw, container, false);
+        view = inflater.inflate(R.layout.fragment_center_auth_api_transfer_self_withdraw, container, false);
         initView();
         return view;
     }
 
     void initView() {
+
+
+
         // access_token : 가장 최근 액세스 토큰으로 기본 설정
         EditText etToken = view.findViewById(R.id.etToken);
         etToken.setText(AppData.getCenterAuthAccessToken(Scope.TRANSFER));
@@ -82,7 +80,7 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
         // 약정 계좌/계정 구분 : 드랍다운 메뉴
         List<TwoString> cntrAccountTypeMenuList = new ArrayList<>();
         cntrAccountTypeMenuList.add(new TwoString("N(계좌)", "N"));
-//        cntrAccountTypeMenuList.add(new TwoString("C(계정)", "C"));
+        cntrAccountTypeMenuList.add(new TwoString("C(계정)", "C"));
         AppCompatSpinner spCntrAccountType = view.findViewById(R.id.spCntrAccountType);
         ArrayAdapter<TwoString> cntrAccountTypeAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, cntrAccountTypeMenuList);
         spCntrAccountType.setAdapter(cntrAccountTypeAdapter);
@@ -117,10 +115,8 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
         view.findViewById(R.id.btnSelectFintechUseNum).setOnClickListener(onClickListener);
 
         // 거래금액
-        TextView test1;
-        test1= view.findViewById(R.id.moneyTranAmt);
+
         //showAlert("coin:", coin);
-        test1.setText(coin);
         KmUtilMoneyEditText moneyTranAmt = view.findViewById(R.id.moneyTranAmt);
 
         // 요청일시
@@ -144,9 +140,9 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
 
         // 이체용도
         List<TwoString> transferPurposeMenuList = new ArrayList<>();
-        transferPurposeMenuList.add(new TwoString("TR(기부)", "TR"));
-//        transferPurposeMenuList.add(new TwoString("ST(결제)", "ST"));
-//        transferPurposeMenuList.add(new TwoString("RC(충전)", "RC"));
+        transferPurposeMenuList.add(new TwoString("TR(송금)", "TR"));
+        transferPurposeMenuList.add(new TwoString("ST(결제)", "ST"));
+        transferPurposeMenuList.add(new TwoString("RC(충전)", "RC"));
         AppCompatSpinner spTransferPurpose = view.findViewById(R.id.spTransferPurpose);
         ArrayAdapter<TwoString> transferPurposeAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, transferPurposeMenuList);
         spTransferPurpose.setAdapter(transferPurposeAdapter);
@@ -208,7 +204,7 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
             paramMap.put("cntr_account_num", etCntrAccountNum.getText().toString());
             paramMap.put("dps_print_content", etDpsPrintContent.getText().toString());
             paramMap.put("fintech_use_num", fintechUseNum);
-            paramMap.put("tran_amt", moneyTranAmt.getTextString());     // 쉼표(,)를 제외하고 추출
+            paramMap.put("tran_amt2", moneyTranAmt.getTextString());     // 쉼표(,)를 제외하고 추출
             paramMap.put("tran_dtime", etTranDtime.getText().toString());
             paramMap.put("req_client_name", reqClientName);
             paramMap.put("req_client_bank_code", reqClientBankCode);
@@ -225,12 +221,11 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
             showProgress();
             CenterAuthApiRetrofitAdapter.getInstance()
                     .transferWithdrawFinNum("Bearer " + accessToken, paramMap)
-                    .enqueue(super.handleResponse("tran_amt", "이체완료!! 이체금액"));
+                    .enqueue(super.handleResponse("tran_amt2", "이체완료!! 이체금액"));
         });
 
         // 취소
         view.findViewById(R.id.btnCancel).setOnClickListener(v -> onBackPressed());
 
     }
-
 }

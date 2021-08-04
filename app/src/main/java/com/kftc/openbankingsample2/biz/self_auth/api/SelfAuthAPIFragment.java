@@ -68,7 +68,7 @@ public class SelfAuthAPIFragment extends AbstractSelfAuthMainFragment {
         view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> startFragment(SelfAuthAPIUserMeRequestFragment.class, args, R.string.fragment_id_api_call_userme));
 
         // 잔액조회
-        view.findViewById(R.id.btnInqrBlncPage).setOnClickListener(v -> startFragment(SelfAuthAPIAccountBalanceFragment.class, args, R.string.fragment_id_api_call_balance));
+        //view.findViewById(R.id.btnInqrBlncPage).setOnClickListener(v -> startFragment(SelfAuthAPIAccountBalanceFragment.class, args, R.string.fragment_id_api_call_balance));
 
         // 거래내역조회
         view.findViewById(R.id.btnInqrTranRecPage).setOnClickListener(v -> startFragment(SelfAuthAPIAccountTransactionRequestFragment.class, args, R.string.fragment_id_api_call_transaction));

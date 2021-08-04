@@ -54,6 +54,7 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
     // context
     private Context context;
     protected MainActivity activity;
+    private View view;
 
 
     // progress
@@ -73,8 +74,11 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
         super.onCreate(savedInstanceState);
         context = getContext();
 
+
         // 메인액티빅티 개체 연결
         activity = (MainActivity) getActivity();
+        //activity.setContentView(R.layout.fragment_center_auth_home);
+
     }
 
     @Override
@@ -305,9 +309,14 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
                 if (key.contains("_amt")) {
 
                     if (key.contains("balance_amt")) {
-                        value = Utils.moneyForm(value);
+                        value = Utils.moneyForm(value)+"원";
                     } else{
-                        value = value.substring(value.length() - 3, value.length());
+                        if(key.contains("amt2")){
+                            value = Utils.moneyForm(value);
+                        }
+                        else {
+                            value = value.substring(value.length() - 3, value.length());
+                        }
                     }
                 }
                 else if(key.contains("_cnt")){
@@ -315,7 +324,14 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
                 }
 
                 if (listener == null) {
-                    showAlert("정상", desc + ": " + value, responseJson);
+                    if(value.substring(value.length()-1).equals("원")){
+                        TextView txt = activity.findViewById(R.id.textBalance);
+                        txt.setText(desc+":"+value);
+
+                    }
+                    else{
+                        showAlert("정상", desc + ": " + value, responseJson);
+                    }
                 } else {
                     showAlert("정상", desc + ": " + value, responseJson,
                             (dialog, which) -> listener.onSuccess(responseJson));

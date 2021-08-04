@@ -2,6 +2,7 @@ package com.kftc.openbankingsample2.biz.center_auth;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     private Context context;
     protected MainActivity activity;
     public String coin;
+    private View view;
 
 
     @Override

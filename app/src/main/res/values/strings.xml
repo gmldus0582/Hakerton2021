@@ -20,6 +20,7 @@
     <string name="fragment_id_api_call_auto" translatable="false">자동이체</string>
     <string name="fragment_id_api_call_realname" translatable="false">계좌실명조회</string>
     <string name="fragment_id_api_call_deposit" translatable="false">입금이체</string>
+    <string name="fragment_id_api_call_self_withdraw" translatable="false">센터인증 메인홈</string>
     <string name="fragment_id_api_call_account" translatable="false">등록계좌조회</string>
     <string name="fragment_id_api_call_account_cancel" translatable="false">계좌해지</string>
     <string name="fragment_id_center_auth_setting" translatable="false">센터인증기관 설정</string>
