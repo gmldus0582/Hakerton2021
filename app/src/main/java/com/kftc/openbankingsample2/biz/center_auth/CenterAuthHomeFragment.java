@@ -13,6 +13,7 @@ import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.api.CenterAuthAPIFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.account_balance.CenterAuthAPIAccountBalanceFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.account_transaction.CenterAuthAPIAccountTransactionRequestFragment;
+import com.kftc.openbankingsample2.biz.center_auth.api.transfer_auto.CenterAuthAPITransferAutoFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.transfer_result.CenterAuthAPITransferResultFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.transfer_withdraw.CenterAuthAPITransferWithdrawFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.user_me.CenterAuthAPIUserMeRequestFragment;
@@ -69,6 +70,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
 
         // 이체결과조회
         view.findViewById(R.id.btnTransferResult).setOnClickListener(v -> startFragment(CenterAuthAPITransferResultFragment.class, args, R.string.fragment_id_api_call_transfer_result));
+        view.findViewById(R.id.btnAutoTrnsWDPage).setOnClickListener(v -> startFragment(CenterAuthAPITransferAutoFragment.class, args, R.string.fragment_id_api_call_auto));
     }
 
     @Override

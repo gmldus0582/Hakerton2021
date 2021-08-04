@@ -1,14 +1,17 @@
 package com.kftc.openbankingsample2.biz.main;
 
 import android.accounts.AccountManager;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,10 +55,11 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
     private Context context;
     protected MainActivity activity;
 
+
     // progress
     private KmProgressBar progressBar;
 
-    public String coin="110";
+    public String coin="123";
 
     String coin2;
 
@@ -297,22 +301,18 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
                 }
 
                 // 금액이면 쉼표와 '원', 건수이면 '건'을 붙여준다.
+
                 if (key.contains("_amt")) {
-                    value = Utils.moneyForm(value);
-                } else if (key.contains("_cnt")) {
+
+                    if (key.contains("balance_amt")) {
+                        value = Utils.moneyForm(value);
+                    } else{
+                        value = value.substring(value.length() - 3, value.length());
+                    }
+                }
+                else if(key.contains("_cnt")){
                     value = Utils.moneyForm(value) + "건";
                 }
-
-                if(key.contains("balance_amt")){
-                    coin2 = value.substring(value.length()-3, value.length());
-                    value = coin2;
-                }
-
-                if(key.contains("tran_amt")){
-                    coin = coin2;
-                    value = coin2;
-                }
-
 
                 if (listener == null) {
                     showAlert("정상", desc + ": " + value, responseJson);

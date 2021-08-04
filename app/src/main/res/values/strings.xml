@@ -17,6 +17,7 @@
     <string name="fragment_id_api_call_balance" translatable="false">잔액조회</string>
     <string name="fragment_id_api_call_transaction" translatable="false">거래내역조회</string>
     <string name="fragment_id_api_call_withdraw" translatable="false">출금이체</string>
+    <string name="fragment_id_api_call_auto" translatable="false">자동이체</string>
     <string name="fragment_id_api_call_realname" translatable="false">계좌실명조회</string>
     <string name="fragment_id_api_call_deposit" translatable="false">입금이체</string>
     <string name="fragment_id_api_call_account" translatable="false">등록계좌조회</string>

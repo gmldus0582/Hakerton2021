@@ -227,8 +227,8 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
 
             showProgress();
             CenterAuthApiRetrofitAdapter.getInstance()
-                        .transferWithdrawFinNum("Bearer " + accessToken, paramMap)
-                        .enqueue(super.handleResponse("tran_amt", "이체완료!! 이체금액"));
+                    .transferWithdrawFinNum("Bearer " + accessToken, paramMap)
+                    .enqueue(super.handleResponse("tran_amt", "이체완료!! 이체금액"));
         });
 
         // 취소
