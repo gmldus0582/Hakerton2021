@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--서브타이틀-->
-<LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
-    <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
-        android:text="센터인증 메인화면\n- 계좌등록 및 API 거래기능"/>
-</LinearLayout>
-
 <!--메인-->
 <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
 <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
@@ -38,18 +32,18 @@
     <LinearLayout android:id="@+id/llsubLayout" style="@style/MainLayout"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnInqrUserInfoPage"
-        style="@style/Button01"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="500dp"
-        android:text="계좌선택"
-        android:textSize="18sp" />
+<!--    <Button-->
+<!--        android:id="@+id/btnInqrUserInfoPage"-->
+<!--        style="@style/Button01"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:layout_marginBottom="500dp"-->
+<!--        android:text="계좌선택"-->
+<!--        android:textSize="18sp" />-->
 
     <Button
         android:id="@+id/btnTrnsWDPage"
@@ -87,18 +81,18 @@
         android:layout_marginRight="8dp"
         android:text="거래내역" />
 
-    <Button
-        android:id="@+id/btnAutoTrnsWDPage"
-        style="@style/Button01"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="500dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="자동이체"
-        android:textSize="18sp" />
+<!--    <Button-->
+<!--        android:id="@+id/btnAutoTrnsWDPage"-->
+<!--        style="@style/Button01"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginBottom="500dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:text="자동이체"-->
+<!--        android:textSize="18sp" />-->
 
         <Button
             android:id="@+id/btnSelfWithdraw"

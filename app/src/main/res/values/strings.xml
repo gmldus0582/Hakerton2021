@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name" translatable="false">오픈뱅킹샘플</string>
+    <string name="app_name" translatable="false">WingForGirls</string>
 
     <string name="fragment_id_navi" translatable="false">navigation</string>
     <string name="fragment_id_main" translatable="false">오픈뱅킹샘플</string>
-    <string name="fragment_id_home" translatable="false">오픈뱅킹샘플</string>
-    <string name="fragment_id_center" translatable="false">센터인증 메인홈</string>
+    <string name="fragment_id_home" translatable="false">로그인</string>
+    <string name="fragment_id_center" translatable="false">메인홈</string>
     <string name="fragment_id_self" translatable="false">자체인증 메인홈</string>
     <string name="fragment_id_center_auth" translatable="false">센터인증 계좌등록 및 토큰발급</string>
     <string name="fragment_id_self_auth" translatable="false">자체인증 계좌등록 및 토큰발급</string>
@@ -13,14 +13,14 @@
     <string name="fragment_id_token" translatable="false">토큰발급</string>
     <string name="fragment_id_center_api_call" translatable="false">센터인증 API호출</string>
     <string name="fragment_id_self_api_call" translatable="false">자체인증 API호출</string>
-    <string name="fragment_id_api_call_userme" translatable="false">사용자정보조회</string>
-    <string name="fragment_id_api_call_balance" translatable="false">잔액조회</string>
+    <string name="fragment_id_api_call_userme" translatable="false">계좌선택</string>
+    <string name="fragment_id_api_call_balance" translatable="false">계좌선택</string>
     <string name="fragment_id_api_call_transaction" translatable="false">거래내역조회</string>
-    <string name="fragment_id_api_call_withdraw" translatable="false">출금이체</string>
+    <string name="fragment_id_api_call_withdraw" translatable="false">잔액이체</string>
     <string name="fragment_id_api_call_auto" translatable="false">자동이체</string>
     <string name="fragment_id_api_call_realname" translatable="false">계좌실명조회</string>
     <string name="fragment_id_api_call_deposit" translatable="false">입금이체</string>
-    <string name="fragment_id_api_call_self_withdraw" translatable="false">센터인증 메인홈</string>
+    <string name="fragment_id_api_call_self_withdraw" translatable="false">출금이체</string>
     <string name="fragment_id_api_call_account" translatable="false">등록계좌조회</string>
     <string name="fragment_id_api_call_account_cancel" translatable="false">계좌해지</string>
     <string name="fragment_id_center_auth_setting" translatable="false">센터인증기관 설정</string>
@@ -86,8 +86,8 @@
     <string name="cntr_account_type">약정계좌/계정구분 : </string>
     <string name="check_type">이체구분 : </string>
     <string name="cntr_account_num">약정계좌계정번호 : </string>
-    <string name="inquiry_type">조회구분코드 : </string>
-    <string name="inquiry_base">조회기준코드 : </string>
+    <string name="inquiry_type">조회구분 : </string>
+    <string name="inquiry_base">날짜/시간 : </string>
     <string name="from_date">조회시작일자 : </string>
     <string name="from_time">조회시작시간 : </string>
     <string name="to_date">조회종료일자 : </string>

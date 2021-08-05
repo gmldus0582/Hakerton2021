@@ -52,6 +52,8 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
     // view
     private View view;
     private View view2;
+    private View view3;
+    public String coin ;
 
     // data
     private Bundle args;
@@ -64,6 +66,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
         context = getContext();
         args = getArguments();
         if (args == null) args = new Bundle();
+        this.coin= super.coin;
     }
 
     @Nullable
@@ -76,13 +79,14 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
 
     private void initView() {
         view2 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_withdraw,null,false);
-
+        view3 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_self_withdraw,null,false);
         // 계좌등록
-//        view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth));
+        //view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth));
 
         // API 거래
-       // view.findViewById(R.id.btnAPICallMenu).setOnClickListener(v -> startFragment(CenterAuthAPIFragment.class, args, R.string.fragment_id_center_api_call));
-        view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> startFragment(CenterAuthAPIUserMeRequestFragment.class, args, R.string.fragment_id_api_call_userme));
+        // view.findViewById(R.id.btnAPICallMenu).setOnClickListener(v -> startFragment(CenterAuthAPIFragment.class, args, R.string.fragment_id_center_api_call));
+//        //계좌선택
+//        view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> startFragment(CenterAuthAPIUserMeRequestFragment.class, args, R.string.fragment_id_api_call_userme));
 
         // 잔액조회
         //view.findViewById(R.id.btnInqrBlncPage).setOnClickListener(v -> startFragment(CenterAuthAPIAccountBalanceFragment.class, args, R.string.fragment_id_api_call_balance));
@@ -91,9 +95,20 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
         view.findViewById(R.id.btnInqrTranRecPage).setOnClickListener(v -> startFragment(CenterAuthAPIAccountTransactionRequestFragment.class, args, R.string.fragment_id_api_call_transaction));
 
         //잔액 이체
-        view.findViewById(R.id.btnTrnsWDPage).setOnClickListener(v ->startFragment(CenterAuthAPITransferWithdrawFragment.class, args, R.string.fragment_id_api_call_withdraw));
+        EditText etBankTranId = view2.findViewById(R.id.etBankTranId);
+        TextView bal = view.findViewById(R.id.textBalance);
+        String bal2 = (String) bal.getText();
+        view.findViewById(R.id.btnTrnsWDPage).setOnClickListener(v ->{
+            showAlert("잔액:",bal2);
+            setRandomBankTranId(etBankTranId);
+            startFragment(CenterAuthAPITransferWithdrawFragment.class, args, R.string.fragment_id_api_call_withdraw);
+        });
         //수동이체
-        view.findViewById(R.id.btnSelfWithdraw).setOnClickListener(v -> startFragment(CenterAuthAPITransferSelfWithdrawFragment.class, args, R.string.fragment_id_api_call_self_withdraw));
+        EditText etBankTranSelfId = view3.findViewById(R.id.etBankTranId);
+        view.findViewById(R.id.btnSelfWithdraw).setOnClickListener(v -> {
+            startFragment(CenterAuthAPITransferSelfWithdrawFragment.class, args, R.string.fragment_id_api_call_self_withdraw);
+            setRandomBankTranId(etBankTranSelfId);
+        });
 
         // 이체결과조회
         //view.findViewById(R.id.btnTransferResult).setOnClickListener(v -> startFragment(CenterAuthAPITransferResultFragment.class, args, R.string.fragment_id_api_call_transfer_result));

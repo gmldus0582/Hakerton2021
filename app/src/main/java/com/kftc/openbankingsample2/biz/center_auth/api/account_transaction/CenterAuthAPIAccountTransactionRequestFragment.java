@@ -89,9 +89,9 @@ public class CenterAuthAPIAccountTransactionRequestFragment extends AbstractCent
 
         // 조회구분코드 드랍다운 메뉴
         List<TwoString> inquiryTypeMenuList = new ArrayList<>();
-        inquiryTypeMenuList.add(new TwoString("A(All)", "A"));
-        inquiryTypeMenuList.add(new TwoString("I(입금)", "I"));
-        inquiryTypeMenuList.add(new TwoString("O(출금)", "O"));
+        inquiryTypeMenuList.add(new TwoString("전체", "A"));
+//        inquiryTypeMenuList.add(new TwoString("I(입금)", "I"));
+        inquiryTypeMenuList.add(new TwoString("출금", "O"));
         AppCompatSpinner spInquiryType = view.findViewById(R.id.spInquiryType);
         ArrayAdapter<TwoString> inquiryTypeAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, inquiryTypeMenuList);
         spInquiryType.setAdapter(inquiryTypeAdapter);
@@ -112,8 +112,8 @@ public class CenterAuthAPIAccountTransactionRequestFragment extends AbstractCent
 
         // 조회기준코드 드랍다운 메뉴
         List<TwoString> inquiryBaseMenuList = new ArrayList<>();
-        inquiryBaseMenuList.add(new TwoString("D(일자)", "D"));
-        inquiryBaseMenuList.add(new TwoString("T(시간)", "T"));
+        inquiryBaseMenuList.add(new TwoString("일자", "D"));
+        inquiryBaseMenuList.add(new TwoString("시간", "T"));
         AppCompatSpinner spInquiryBase = view.findViewById(R.id.spInquiryBase);
         ArrayAdapter<TwoString> inquiryBaseAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, inquiryBaseMenuList);
         spInquiryBase.setAdapter(inquiryBaseAdapter);
@@ -148,8 +148,8 @@ public class CenterAuthAPIAccountTransactionRequestFragment extends AbstractCent
 
         // 정렬순서
         List<TwoString> sortOrderMenuList = new ArrayList<>();
-        sortOrderMenuList.add(new TwoString("D(Descending)", "D"));
-        sortOrderMenuList.add(new TwoString("A(Ascending)", "A"));
+        sortOrderMenuList.add(new TwoString("내림차순", "D"));
+        sortOrderMenuList.add(new TwoString("오름차순", "A"));
         AppCompatSpinner spSortOrder = view.findViewById(R.id.spSortOrder);
         ArrayAdapter<TwoString> sortOrderAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, sortOrderMenuList);
         spSortOrder.setAdapter(sortOrderAdapter);
@@ -174,7 +174,7 @@ public class CenterAuthAPIAccountTransactionRequestFragment extends AbstractCent
 
         // 직전조회추적번호
         EditText etBeforInquiryTraceInfo = view.findViewById(R.id.etBeforInquiryTraceInfo);
-        etBeforInquiryTraceInfo.setText("123");
+        etBeforInquiryTraceInfo.setText("");
 
         // 거래내역조회 요청
         view.findViewById(R.id.btnNext).setOnClickListener(v -> {

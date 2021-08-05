@@ -14,8 +14,10 @@ import androidx.collection.CircularArray;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
+import com.kftc.openbankingsample2.biz.center_auth.api.transfer_withdraw.CenterAuthAPITransferWithdrawFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
+import com.kftc.openbankingsample2.biz.main.HomeFragment;
 import com.kftc.openbankingsample2.common.Scope;
 import com.kftc.openbankingsample2.common.application.AppData;
 import com.kftc.openbankingsample2.common.util.Utils;
@@ -92,27 +94,25 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
         etTranDtime.setText(new SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA).format(new Date()));
 
         // 잔액조회 요청
-        view.findViewById(R.id.btnNext).setOnClickListener(v -> {
+        view.findViewById(R.id.btnNext).setOnClickListener(v -> startFragment(HomeFragment.class, args, R.string.fragment_id_home));
 
             // 직전내용 저장
-            String accessToken = etToken.getText().toString().trim();
-            Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
-            String fintechUseNum = etFintechUseNum.getText().toString();
-            Utils.saveData(CenterAuthConst.CENTER_AUTH_FINTECH_USE_NUM, fintechUseNum);
+//            String accessToken = etToken.getText().toString().trim();
+//            Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
+//            String fintechUseNum = etFintechUseNum.getText().toString();
+//            Utils.saveData(CenterAuthConst.CENTER_AUTH_FINTECH_USE_NUM, fintechUseNum);
+//
+//            // 요청전문
+//            HashMap<String, String> paramMap = new HashMap<>();
+//            paramMap.put("bank_tran_id", etBankTranId.getText().toString());
+//            paramMap.put("fintech_use_num", fintechUseNum);
+//            paramMap.put("tran_dtime", etTranDtime.getText().toString());
+//
+//            showProgress();
+//            CenterAuthApiRetrofitAdapter.getInstance()
+//                    .accountBalanceFinNum("Bearer " + accessToken, paramMap)
+//                    .enqueue(super.handleResponse("balance_amt", "잔액"));
 
-            // 요청전문
-            HashMap<String, String> paramMap = new HashMap<>();
-            paramMap.put("bank_tran_id", etBankTranId.getText().toString());
-            paramMap.put("fintech_use_num", fintechUseNum);
-            paramMap.put("tran_dtime", etTranDtime.getText().toString());
-
-            showProgress();
-            CenterAuthApiRetrofitAdapter.getInstance()
-                    .accountBalanceFinNum("Bearer " + accessToken, paramMap)
-                    .enqueue(super.handleResponse("balance_amt", "잔액"));
-
-            
-        });
 
 
         // 취소

@@ -204,7 +204,7 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
             paramMap.put("cntr_account_num", etCntrAccountNum.getText().toString());
             paramMap.put("dps_print_content", etDpsPrintContent.getText().toString());
             paramMap.put("fintech_use_num", fintechUseNum);
-            paramMap.put("tran_amt2", moneyTranAmt.getTextString());     // 쉼표(,)를 제외하고 추출
+            paramMap.put("tran_amt", moneyTranAmt.getTextString());     // 쉼표(,)를 제외하고 추출
             paramMap.put("tran_dtime", etTranDtime.getText().toString());
             paramMap.put("req_client_name", reqClientName);
             paramMap.put("req_client_bank_code", reqClientBankCode);
@@ -221,7 +221,7 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
             showProgress();
             CenterAuthApiRetrofitAdapter.getInstance()
                     .transferWithdrawFinNum("Bearer " + accessToken, paramMap)
-                    .enqueue(super.handleResponse("tran_amt2", "이체완료!! 이체금액"));
+                    .enqueue(super.handleResponse("tran_amt", "이체완료!! 이체금액"));
         });
 
         // 취소

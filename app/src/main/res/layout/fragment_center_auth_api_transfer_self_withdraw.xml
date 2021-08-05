@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--서브타이틀-->
-    <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
-        <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
-            android:text="출금이체"/>
-    </LinearLayout>
-
     <!--메인-->
     <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
         <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
@@ -21,12 +15,13 @@
                 android:layout_marginTop="15dp">
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
 
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:layout_height="match_parent"
-                        android:text="@string/token_transfer" />
+                        />
 
                     <LinearLayout
                         style="@style/FormValue02">
@@ -49,10 +44,11 @@
                     </LinearLayout>
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
-                        android:text="@string/bank_tran_id" />
+                        />
                     <LinearLayout style="@style/FormValue02">
                         <EditText
                             android:id="@+id/etBankTranId"
@@ -72,7 +68,8 @@
                     </LinearLayout>
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    >
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:layout_height="match_parent"
@@ -82,7 +79,8 @@
                         style="@style/FormValue02" />
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/cntr_account_num" />
@@ -91,7 +89,8 @@
                         style="@style/FormValue02" />
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/dps_print_content" />
@@ -101,7 +100,8 @@
                         android:text="쇼핑몰환불" />
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:textColor="@color/md_red_400"
@@ -134,12 +134,13 @@
                     <com.kftc.openbankingsample2.common.util.view.KmUtilMoneyEditText
                         android:id="@+id/moneyTranAmt"
                         android:inputType="number"
-                        android:text=""
+                        android:text="1000"
                         style="@style/FormValue02" />
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/tran_dtime" />
@@ -150,7 +151,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/req_client_name" />
@@ -161,7 +163,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/req_client_bank_code" />
@@ -173,10 +176,11 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
-                        android:text="@string/req_client_account_num" />
+                        />
                     <EditText
                         android:id="@+id/etReqClientAccountNum"
                         android:text="1234567890"
@@ -185,7 +189,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/req_client_num" />
@@ -196,7 +201,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    >
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/transfer_purpose" />
@@ -206,7 +212,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/sub_frnc_name" />
@@ -217,7 +224,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/sub_frnc_num" />
@@ -229,7 +237,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/sub_frnc_business_num" />
@@ -241,7 +250,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/recv_client_name" />
@@ -253,7 +263,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/recv_client_bank_code" />
@@ -265,7 +276,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/recv_client_account_num" />

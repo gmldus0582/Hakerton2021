@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--서브타이틀-->
-    <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
-        <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
-            android:text="거래내역조회(/account/transaction_list/fin_num)\n- 사용자가 등록한 계좌의 거래내역을 조회"/>
-    </LinearLayout>
-
     <!--메인-->
     <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
         <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
@@ -21,7 +15,8 @@
                 android:layout_marginTop="15dp">
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:layout_height="match_parent"
@@ -43,7 +38,8 @@
                     </LinearLayout>
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/bank_tran_id" />
@@ -67,7 +63,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:textColor="@color/md_red_400"
@@ -114,7 +111,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/from_date" />
@@ -124,7 +122,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/from_time" />
@@ -134,7 +133,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/to_date" />
@@ -144,7 +144,8 @@
                 </TableRow>
 
                 <TableRow
-                    android:padding="5dip">
+                    android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/to_time" />
@@ -163,7 +164,8 @@
                         style="@style/FormValue02" />
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/tran_dtime" />
@@ -172,7 +174,8 @@
                         style="@style/FormValue02" />
                 </TableRow>
 
-                <TableRow android:padding="5dip">
+                <TableRow android:padding="5dip"
+                    android:visibility="gone">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:text="@string/befor_inquiry_trace_info" />

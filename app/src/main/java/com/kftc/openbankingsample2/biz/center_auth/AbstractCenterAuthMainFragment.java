@@ -2,9 +2,11 @@ package com.kftc.openbankingsample2.biz.center_auth;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -38,10 +40,14 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-        this.coin= super.coin;
+        //this.coin= super.coin;
 
         // 메인액티빅티 개체 연결
         activity = (MainActivity) getActivity();
+
+        System.out.println("coin!!" + super.coin);
+
+
     }
 
     @Override
@@ -50,6 +56,7 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
 
         // 메인액티빅티 개체 연결
         activity = (MainActivity) getActivity();
+
 
     }
 

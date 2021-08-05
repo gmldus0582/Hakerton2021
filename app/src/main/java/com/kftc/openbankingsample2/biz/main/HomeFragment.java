@@ -16,10 +16,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.Gson;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthHomeFragment;
+import com.kftc.openbankingsample2.biz.center_auth.api.user_me.CenterAuthAPIUserMeRequestFragment;
+import com.kftc.openbankingsample2.biz.center_auth.api.user_me.CenterAuthAPIUserMeResultFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.CenterAuthFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.self_auth.SelfAuthHomeFragment;
@@ -35,6 +38,7 @@ import com.kftc.openbankingsample2.BuildConfig;
 import com.kftc.openbankingsample2.common.Scope;
 import com.kftc.openbankingsample2.common.application.AppData;
 import com.kftc.openbankingsample2.common.data.AccessToken;
+import com.kftc.openbankingsample2.common.data.ApiCallUserMeResponse;
 import com.kftc.openbankingsample2.common.util.Utils;
 
 /**
@@ -48,6 +52,7 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
     // view
     private View view;
     private View view2;
+    private View view3;
 
     // data
     private Bundle args;
@@ -108,12 +113,44 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
         // access_token : 기존 토큰에서 선택
         //view.findViewById(R.id.btnSelectToken).setOnClickListener(v -> showTokenDialog(etToken, Scope.INQUIRY));
 
+        //----------계좌선택---------------------------------------------------------------
+        view3 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_user_me_request,null,false);
+        etToken.setText(AppData.getCenterAuthAccessToken(Scope.LOGIN));
+
+        // user_seq_no : 가장 최근 사용자 일련번호로 기본 설정
+        EditText etUserSeqNo = view3.findViewById(R.id.etUserSeqNo);
+        etUserSeqNo.setText(Utils.getSavedValue(CenterAuthConst.CENTER_AUTH_USER_SEQ_NO));
+
+        // access_token : 기존 토큰에서 선택
+        view3.findViewById(R.id.btnSelectToken).setOnClickListener(v -> showTokenDialog(etToken, etUserSeqNo, Scope.LOGIN));
+        view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> {
+            String accessToken = etToken.getText().toString().trim();
+            Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
+            String userSeqNo = etUserSeqNo.getText().toString().trim();
+            Utils.saveData(CenterAuthConst.CENTER_AUTH_USER_SEQ_NO, userSeqNo);
+
+            HashMap<String, String> paramMap = new HashMap<>();
+            paramMap.put("user_seq_no", userSeqNo);
+
+            showProgress();
+            CenterAuthApiRetrofitAdapter.getInstance()
+                    .userMe("Bearer " + accessToken, paramMap)
+                    .enqueue(super.handleResponse("res_cnt", "등록계좌수", responseJson -> {
+
+                                // 성공하면 결과화면으로 이동
+                                ApiCallUserMeResponse result = new Gson().fromJson(responseJson, ApiCallUserMeResponse.class);
+                                args.putParcelable("result", result);
+                                goNext();
+                            })
+                    );
+        });
 
         //계좌등록
         String strToken = etToken.getText().toString();
 //        LinearLayout layout = view.findViewById(R.id.btnAuthToken);
 //        LinearLayout layout2 = view.findViewById(R.id.btnNext);
-        if(strToken.length()==0){
+        if(strToken.length()==1){
+
 //            layout.setVisibility(View.VISIBLE);
 //            layout2.setVisibility(View.INVISIBLE);
             view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth));
@@ -164,6 +201,10 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
 //            Timber.e(e);
 //        }
 
+    }
+
+    void goNext() {
+        startFragment(CenterAuthAPIUserMeResultFragment.class, args, R.string.fragment_id_api_call_userme);
     }
 
     @Override

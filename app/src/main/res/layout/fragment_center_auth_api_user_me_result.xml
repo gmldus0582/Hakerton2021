@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--서브타이틀-->
-    <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
-        <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
-            android:text="사용자정보조회(/user/me)\n- 응답메시지를 출력합니다."/>
-    </LinearLayout>
-
     <!--메인-->
     <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
         <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">

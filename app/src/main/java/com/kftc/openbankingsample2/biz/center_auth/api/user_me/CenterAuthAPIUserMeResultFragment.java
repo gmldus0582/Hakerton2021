@@ -17,6 +17,7 @@ import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
 import com.kftc.openbankingsample2.biz.center_auth.api.CenterAuthAPIFragment;
+import com.kftc.openbankingsample2.biz.center_auth.api.account_balance.CenterAuthAPIAccountBalanceFragment;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
 import com.kftc.openbankingsample2.common.data.ApiCallUserMeResponse;
 import com.kftc.openbankingsample2.common.util.Utils;
@@ -69,7 +70,7 @@ public class CenterAuthAPIUserMeResultFragment extends AbstractCenterAuthMainFra
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.addItemDecoration(new KmRecyclerViewDividerHeight(30));
 
-        view.findViewById(R.id.btnNext).setOnClickListener(v -> goNext());
+        view.findViewById(R.id.btnNext).setOnClickListener(v -> startFragment(CenterAuthAPIAccountBalanceFragment.class, args, R.string.fragment_id_api_call_balance));
 
         initData();
     }

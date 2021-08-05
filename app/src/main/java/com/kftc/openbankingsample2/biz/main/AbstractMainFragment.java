@@ -56,13 +56,12 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
     protected MainActivity activity;
     private View view;
 
+   public String coin;
+
 
     // progress
     private KmProgressBar progressBar;
 
-    public String coin="123";
-
-    String coin2;
 
     // listener
     protected interface OnClickListener {
@@ -310,17 +309,15 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
 
                     if (key.contains("balance_amt")) {
                         value = Utils.moneyForm(value)+"원";
+                        coin = value;
                     } else{
-                        if(key.contains("amt2")){
-                            value = Utils.moneyForm(value);
-                        }
-                        else {
-                            value = value.substring(value.length() - 3, value.length());
-                        }
+                        value = value.substring(value.length() - 3, value.length());
                     }
+
                 }
                 else if(key.contains("_cnt")){
                     value = Utils.moneyForm(value) + "건";
+
                 }
 
                 if (listener == null) {
@@ -352,6 +349,7 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
                 }
             }
         }
+
     }
 
     // 토큰저장은 센터인증, 자체인증을 나눠서 하위 클래스에서 저장

@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
+import com.kftc.openbankingsample2.biz.center_auth.CenterAuthHomeFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.CenterAuthAPIFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
@@ -172,6 +173,6 @@ public class CenterAuthAPIAccountTransactionResultFragment extends AbstractCente
     };
 
     void goNext() {
-        startFragment(CenterAuthAPIFragment.class, null, R.string.fragment_id_center_api_call);
+        startFragment(CenterAuthHomeFragment.class, null, R.string.fragment_id_center);
     }
 }
