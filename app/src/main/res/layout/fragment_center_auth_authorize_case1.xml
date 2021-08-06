@@ -5,11 +5,12 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent">
 
 <!--서브타이틀-->
-<LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
+<LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout"
+    android:visibility="gone">
     <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
-        android:text="(0)최초인증(CASE1) : 처음 오픈플래폼에 접속하는 사용자의 가입 및 인증 처리(본인인증 + ARS 조회/출금동의)"/>
+        android:text=""/>
     <TextView android:id="@+id/tvSubTitle2" style="@style/SubTitleText" android:visibility="gone"
-        android:text="(0)최초인증(CASE1) : 기 등록된 계좌를 재확인하고 토클재발급. 사용자정보 미보유시(본인인증 + 계좌내역확인)"/>
+        android:text=""/>
 </LinearLayout>
 
 <!--메인-->
@@ -17,14 +18,21 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
 
         <include layout="@layout/common_auth_authorize_case" android:id="@+id/auth2Case1FormTable"/>
-
+        <Button android:id="@+id/btnNext"
+            style="@style/Button01"
+            android:layout_marginTop="300dp"
+            android:layout_width="280dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="10dp"
+            android:text="본인 인증"
+            android:textSize="30dp"/>
     </LinearLayout>
 </ScrollView>
 
 <!--하단버튼-->
 <LinearLayout android:id="@+id/llBottomButton" style="@style/BottomButtonLayout">
     <Button android:id="@+id/btnCancel" style="@style/BottomCancelButton" android:visibility="gone"/>
-    <Button android:id="@+id/btnNext" style="@style/BottomNextButton"/>
+
 </LinearLayout>
 
 </RelativeLayout>

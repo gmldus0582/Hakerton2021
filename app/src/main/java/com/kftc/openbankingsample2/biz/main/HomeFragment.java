@@ -110,9 +110,6 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
         EditText etTranDtime = view2.findViewById(R.id.etTranDtime);
         etTranDtime.setText(new SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA).format(new Date()));
 
-        // access_token : 기존 토큰에서 선택
-        //view.findViewById(R.id.btnSelectToken).setOnClickListener(v -> showTokenDialog(etToken, Scope.INQUIRY));
-
         //----------계좌선택---------------------------------------------------------------
         view3 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_user_me_request,null,false);
         etToken.setText(AppData.getCenterAuthAccessToken(Scope.LOGIN));
@@ -123,47 +120,20 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
 
         // access_token : 기존 토큰에서 선택
         view3.findViewById(R.id.btnSelectToken).setOnClickListener(v -> showTokenDialog(etToken, etUserSeqNo, Scope.LOGIN));
-        view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> {
-            String accessToken = etToken.getText().toString().trim();
-            Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
-            String userSeqNo = etUserSeqNo.getText().toString().trim();
-            Utils.saveData(CenterAuthConst.CENTER_AUTH_USER_SEQ_NO, userSeqNo);
-
-            HashMap<String, String> paramMap = new HashMap<>();
-            paramMap.put("user_seq_no", userSeqNo);
-
-            showProgress();
-            CenterAuthApiRetrofitAdapter.getInstance()
-                    .userMe("Bearer " + accessToken, paramMap)
-                    .enqueue(super.handleResponse("res_cnt", "등록계좌수", responseJson -> {
-
-                                // 성공하면 결과화면으로 이동
-                                ApiCallUserMeResponse result = new Gson().fromJson(responseJson, ApiCallUserMeResponse.class);
-                                args.putParcelable("result", result);
-                                goNext();
-                            })
-                    );
-        });
 
         //계좌등록
         String strToken = etToken.getText().toString();
-//        LinearLayout layout = view.findViewById(R.id.btnAuthToken);
-//        LinearLayout layout2 = view.findViewById(R.id.btnNext);
+
         if(strToken.length()==1){
 
-//            layout.setVisibility(View.VISIBLE);
-//            layout2.setVisibility(View.INVISIBLE);
             view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth));
+            view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> showAlert("error","본인인증이 필요합니다."));
 
         }
         else{
 
-//            layout2.setVisibility(View.VISIBLE);
-//            layout.setVisibility(View.INVISIBLE);
-
             view.findViewById(R.id.btnAuthToken).setOnClickListener(v->{
                 startFragment(CenterAuthHomeFragment.class, args, R.string.fragment_id_center);
-                //startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth);
                 setRandomBankTranId(etBankTranId);
                 String accessToken = etToken.getText().toString().trim();
                 Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
@@ -183,23 +153,30 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
 
             });
 
+            view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> {
+                String accessToken = etToken.getText().toString().trim();
+                Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
+                String userSeqNo = etUserSeqNo.getText().toString().trim();
+                Utils.saveData(CenterAuthConst.CENTER_AUTH_USER_SEQ_NO, userSeqNo);
+
+                HashMap<String, String> paramMap = new HashMap<>();
+                paramMap.put("user_seq_no", userSeqNo);
+
+                showProgress();
+                CenterAuthApiRetrofitAdapter.getInstance()
+                        .userMe("Bearer " + accessToken, paramMap)
+                        .enqueue(super.handleResponse("res_cnt", "등록계좌수", responseJson -> {
+
+                                    // 성공하면 결과화면으로 이동
+                                    ApiCallUserMeResponse result = new Gson().fromJson(responseJson, ApiCallUserMeResponse.class);
+                                    args.putParcelable("result", result);
+                                    goNext();
+                                })
+                        );
+            });
+
 
         }
-
-
-        // 자체인증
-//        view.findViewById(R.id.btnSelfAuth).setOnClickListener(v -> startFragment(SelfAuthHomeFragment.class, args, R.string.fragment_id_self));
-
-        // 하단 버전표시
-//        try {
-//            Date date = new Date(BuildConfig.TIMESTAMP);
-//            String dateStr = new SimpleDateFormat("yyyyMMdd", Locale.KOREA).format(date);
-//
-//            PackageInfo pi = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-//            ((TextView) view.findViewById(R.id.tvVersion)).setText(String.format("Ver: %s_%s", String.valueOf(pi.versionName), dateStr));
-//        } catch (PackageManager.NameNotFoundException e) {
-//            Timber.e(e);
-//        }
 
     }
 

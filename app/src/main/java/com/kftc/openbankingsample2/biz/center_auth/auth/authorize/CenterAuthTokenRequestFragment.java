@@ -21,6 +21,8 @@ import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
 import com.kftc.openbankingsample2.common.util.Utils;
 
 import java.util.HashMap;
+import com.kftc.openbankingsample2.biz.main.HomeFragment;
+
 
 /**
  * 앞단에서 받은 authorization code 를 사용하여 AccessToken 획득하는 과정. api 주소 : .../oauth/2.0/token
@@ -96,7 +98,7 @@ public class CenterAuthTokenRequestFragment extends AbstractCenterAuthMainFragme
             CenterAuthApiRetrofitAdapter.getInstance()
                     .token(paramMap)
                     .enqueue(super.handleResponse("access_token", "발급받은 액세스토큰",
-                            responseJson -> startFragment(CenterAuthHomeFragment.class, null, R.string.fragment_id_center)));
+                            responseJson -> startFragment(HomeFragment.class, null, R.string.fragment_id_home)));
 
         });
 

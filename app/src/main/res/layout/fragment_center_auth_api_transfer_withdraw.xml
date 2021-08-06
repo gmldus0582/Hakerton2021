@@ -131,10 +131,10 @@
                         style="@style/FormLabel02"
                         android:textColor="@color/md_red_400"
                         android:text="@string/tran_amt" />
-                    <com.kftc.openbankingsample2.common.util.view.KmUtilMoneyEditText
+                    <TextView
                         android:id="@+id/moneyTranAmt"
                         android:inputType="number"
-                        android:text="100"
+                        android:text=""
                         style="@style/FormValue02" />
                 </TableRow>
 

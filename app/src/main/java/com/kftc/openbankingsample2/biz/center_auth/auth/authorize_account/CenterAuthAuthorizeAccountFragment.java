@@ -58,9 +58,9 @@ public class CenterAuthAuthorizeAccountFragment extends AbstractCenterAuthMainFr
 
         FragmentTabHost tabHost = view.findViewById(android.R.id.tabhost);
         tabHost.setup(context, getChildFragmentManager(), android.R.id.tabcontent);
-        tabHost.addTab(tabHost.newTabSpec("tab1").setIndicator("CASE 1"), CenterAuthAuthorizeCase1ChildFragment.class, args);
+        tabHost.addTab(tabHost.newTabSpec("tab1").setIndicator("인증하기"), CenterAuthAuthorizeCase1ChildFragment.class, args);
         //tabHost.addTab(tabHost.newTabSpec("tab2").setIndicator("CASE 2"), Delete_CenterAuthAuthorizeCase2ChildFragment.class, args);
-        tabHost.addTab(tabHost.newTabSpec("tab3").setIndicator("CASE 3"), CenterAuthAuthorizeCase3ChildFragment.class, args);
+        //tabHost.addTab(tabHost.newTabSpec("tab3").setIndicator("CASE 3"), CenterAuthAuthorizeCase3ChildFragment.class, args);
 
         tabHost.setOnTabChangedListener(tabId -> {
             Class<?> fragmentClass = null;
@@ -73,10 +73,10 @@ public class CenterAuthAuthorizeAccountFragment extends AbstractCenterAuthMainFr
                     fragmentClass = Delete_CenterAuthAuthorizeCase2ChildFragment.class;
                     ((TextView) view.findViewById(R.id.tvSubTitle)).setText(R.string.fragment_subtitle_auth_authorize_case2);
                     break;*/
-                case "tab3":
-                    fragmentClass = CenterAuthAuthorizeCase3ChildFragment.class;
-                    ((TextView) view.findViewById(R.id.tvSubTitle)).setText(R.string.fragment_subtitle_auth_authorize_case3);
-                    break;
+//                case "tab3":
+//                    fragmentClass = CenterAuthAuthorizeCase3ChildFragment.class;
+//                    ((TextView) view.findViewById(R.id.tvSubTitle)).setText(R.string.fragment_subtitle_auth_authorize_case3);
+//                    break;
             }
             startChildFragment(fragmentClass, args);
         });

@@ -7,7 +7,7 @@
     <!--서브타이틀-->
     <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
         <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
-            android:text="토큰발급(3-legged)"/>
+            />
     </LinearLayout>
 
     <!--메인-->
@@ -18,7 +18,8 @@
                 android:id="@+id/tableLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
 
                 <TableRow android:padding="5dip">
 
@@ -84,6 +85,12 @@
                 </TableRow>
 
             </TableLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="인증이 완료되었습니다!"
+                android:textSize="40dp"
+                android:layout_marginTop="250dp"></TextView>
 
         </LinearLayout>
     </ScrollView>

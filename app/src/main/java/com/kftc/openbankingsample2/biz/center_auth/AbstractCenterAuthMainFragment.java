@@ -32,7 +32,7 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     // context
     private Context context;
     protected MainActivity activity;
-    public String coin;
+    public static String coin1;
     private View view;
 
 
@@ -40,13 +40,10 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-        //this.coin= super.coin;
+        coin1= super.coin;
 
         // 메인액티빅티 개체 연결
         activity = (MainActivity) getActivity();
-
-        System.out.println("coin!!" + super.coin);
-
 
     }
 
@@ -68,6 +65,7 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     // 토큰선택창
     protected void showTokenDialog(EditText etToken, Scope scope) {
         showTokenDialog(etToken, null, scope);
+
     }
 
     // 토큰선택창

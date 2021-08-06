@@ -6,11 +6,11 @@
     <string name="fragment_id_home" translatable="false">로그인</string>
     <string name="fragment_id_center" translatable="false">메인홈</string>
     <string name="fragment_id_self" translatable="false">자체인증 메인홈</string>
-    <string name="fragment_id_center_auth" translatable="false">센터인증 계좌등록 및 토큰발급</string>
+    <string name="fragment_id_center_auth" translatable="false">계좌 확인 및 본인 인증</string>
     <string name="fragment_id_self_auth" translatable="false">자체인증 계좌등록 및 토큰발급</string>
     <string name="fragment_id_auth_authorize" translatable="false">사용자인증</string>
-    <string name="fragment_id_auth_authorize_account" translatable="false">계좌등록확인</string>
-    <string name="fragment_id_token" translatable="false">토큰발급</string>
+    <string name="fragment_id_auth_authorize_account" translatable="false">본인인증</string>
+    <string name="fragment_id_token" translatable="false">인증완료</string>
     <string name="fragment_id_center_api_call" translatable="false">센터인증 API호출</string>
     <string name="fragment_id_self_api_call" translatable="false">자체인증 API호출</string>
     <string name="fragment_id_api_call_userme" translatable="false">계좌선택</string>
@@ -35,9 +35,9 @@
     <string name="fragment_id_api_call_inquiry_fdsdetect" translatable="false">이상금융거래 탐지내역 조회</string>
 
     <string name="fragment_subtitle_home" translatable="false">메인화면</string>
-    <string name="fragment_subtitle_auth_authorize_case1" translatable="false">CASE1</string>
-    <string name="fragment_subtitle_auth_authorize_case2" translatable="false">CASE2</string>
-    <string name="fragment_subtitle_auth_authorize_case3" translatable="false">CASE3</string>
+    <string name="fragment_subtitle_auth_authorize_case1" translatable="false">인증하기</string>
+<!--    <string name="fragment_subtitle_auth_authorize_case2" translatable="false">CASE2</string>-->
+<!--    <string name="fragment_subtitle_auth_authorize_case3" translatable="false">CASE3</string>-->
 
 
     <!--설정값 기본(이용기관 약정계좌. 센터인증/자체인증, 리얼/테스트, 출금이체/입금이체용 구분)-->
@@ -83,7 +83,7 @@
     <string name="bank_code_std">은행표준코드 : </string>
     <string name="account_holder_info_type">예금주 실명번호 구분코드 : </string>
     <string name="account_holder_info">예금주 실명번호 : </string>
-    <string name="cntr_account_type">약정계좌/계정구분 : </string>
+    <string name="cntr_account_type">거래방법 : </string>
     <string name="check_type">이체구분 : </string>
     <string name="cntr_account_num">약정계좌계정번호 : </string>
     <string name="inquiry_type">조회구분 : </string>

@@ -79,8 +79,8 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
 
         // 약정 계좌/계정 구분 : 드랍다운 메뉴
         List<TwoString> cntrAccountTypeMenuList = new ArrayList<>();
-        cntrAccountTypeMenuList.add(new TwoString("N(계좌)", "N"));
-        cntrAccountTypeMenuList.add(new TwoString("C(계정)", "C"));
+        cntrAccountTypeMenuList.add(new TwoString("이체", "N"));
+//        cntrAccountTypeMenuList.add(new TwoString("C(계정)", "C"));
         AppCompatSpinner spCntrAccountType = view.findViewById(R.id.spCntrAccountType);
         ArrayAdapter<TwoString> cntrAccountTypeAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, cntrAccountTypeMenuList);
         spCntrAccountType.setAdapter(cntrAccountTypeAdapter);
@@ -140,9 +140,9 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
 
         // 이체용도
         List<TwoString> transferPurposeMenuList = new ArrayList<>();
-        transferPurposeMenuList.add(new TwoString("TR(송금)", "TR"));
-        transferPurposeMenuList.add(new TwoString("ST(결제)", "ST"));
-        transferPurposeMenuList.add(new TwoString("RC(충전)", "RC"));
+        transferPurposeMenuList.add(new TwoString("생리대 기부", "TR"));
+//        transferPurposeMenuList.add(new TwoString("ST(결제)", "ST"));
+//        transferPurposeMenuList.add(new TwoString("RC(충전)", "RC"));
         AppCompatSpinner spTransferPurpose = view.findViewById(R.id.spTransferPurpose);
         ArrayAdapter<TwoString> transferPurposeAdapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, transferPurposeMenuList);
         spTransferPurpose.setAdapter(transferPurposeAdapter);
@@ -221,7 +221,7 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
             showProgress();
             CenterAuthApiRetrofitAdapter.getInstance()
                     .transferWithdrawFinNum("Bearer " + accessToken, paramMap)
-                    .enqueue(super.handleResponse("tran_amt", "이체완료!! 이체금액"));
+                    .enqueue(super.handleResponse("tran_amt", "금액"));
         });
 
         // 취소

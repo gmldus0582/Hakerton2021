@@ -68,8 +68,7 @@
                     </LinearLayout>
                 </TableRow>
 
-                <TableRow android:padding="5dip"
-                    >
+                <TableRow android:padding="5dip">
                     <me.grantland.widget.AutofitTextView
                         style="@style/FormLabel02"
                         android:layout_height="match_parent"
@@ -134,7 +133,7 @@
                     <com.kftc.openbankingsample2.common.util.view.KmUtilMoneyEditText
                         android:id="@+id/moneyTranAmt"
                         android:inputType="number"
-                        android:text="1000"
+                        android:text=""
                         style="@style/FormValue02" />
                 </TableRow>
 

@@ -5,7 +5,8 @@
     android:layout_marginTop="12dp">
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:text="@string/response_type" />
@@ -15,7 +16,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:layout_width="0dp"
@@ -28,7 +30,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:text="@string/redirect_uri" />
@@ -39,7 +42,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:layout_height="match_parent"
@@ -62,7 +66,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:text="@string/client_info" />
@@ -72,7 +77,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:text="@string/state" />
@@ -83,7 +89,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:text="@string/auth_type" />
@@ -93,7 +100,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:text="@string/lang" />
@@ -104,7 +112,8 @@
     </TableRow>
 
     <TableRow
-        android:padding="5dip">
+        android:padding="5dip"
+        android:visibility="gone">
         <me.grantland.widget.AutofitTextView
             style="@style/FormLabel01"
             android:text="@string/account_hold_auth_yn" />

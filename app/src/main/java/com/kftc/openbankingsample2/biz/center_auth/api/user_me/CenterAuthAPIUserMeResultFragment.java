@@ -91,7 +91,5 @@ public class CenterAuthAPIUserMeResultFragment extends AbstractCenterAuthMainFra
         Utils.saveData(CenterAuthConst.CENTER_AUTH_USER_CI, result.getUser_ci());
     }
 
-    void goNext() {
-        startFragment(CenterAuthAPIFragment.class, null, R.string.fragment_id_center_api_call);
-    }
+
 }

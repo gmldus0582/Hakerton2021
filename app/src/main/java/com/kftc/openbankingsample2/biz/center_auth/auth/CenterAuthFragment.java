@@ -15,6 +15,7 @@ import com.kftc.openbankingsample2.biz.center_auth.CenterAuthHomeFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.authorize.CenterAuthAuthorizeFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.authorize_account.CenterAuthAuthorizeAccountFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.oob.CenterAuthTokenRequestOobFragment;
+import com.kftc.openbankingsample2.biz.main.HomeFragment;
 
 /**
  * 센터인증 메뉴
@@ -61,6 +62,6 @@ public class CenterAuthFragment extends AbstractCenterAuthMainFragment {
 
     @Override
     public void onBackPressed() {
-        startFragment(CenterAuthHomeFragment.class, args, R.string.fragment_id_center);
+        startFragment(HomeFragment.class, args, R.string.fragment_id_home);
     }
 }

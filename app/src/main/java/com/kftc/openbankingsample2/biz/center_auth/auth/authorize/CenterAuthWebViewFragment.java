@@ -27,6 +27,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,10 +35,13 @@ import androidx.annotation.Nullable;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
+import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
+import com.kftc.openbankingsample2.biz.main.HomeFragment;
 import com.kftc.openbankingsample2.common.util.Utils;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 
 import timber.log.Timber;
@@ -59,11 +63,13 @@ public class CenterAuthWebViewFragment extends AbstractCenterAuthMainFragment {
     private View view;
     private WebView webView;
 
+
     // data
     private Bundle args;
     private String urlToLoad;
     private String state;
     private Map<String, String> headerMap;
+
 
     ////////// 인증서 관련 시작 //////////
     // CallBack FilePath
@@ -85,7 +91,6 @@ public class CenterAuthWebViewFragment extends AbstractCenterAuthMainFragment {
         context = getContext();
         args = getArguments();
         if (args == null) args = new Bundle();
-
         urlToLoad = args.getString(URL_TO_LOAD, "");
         state = args.getString(CenterAuthConst.BUNDLE_KEY_STATE, "");
         headerMap = (Map<String, String>) args.getSerializable("headerMap");
@@ -262,6 +267,8 @@ public class CenterAuthWebViewFragment extends AbstractCenterAuthMainFragment {
                     args.putString("scope", scope);
                     args.putString("client_info", client_info);
                     args.putString("state", state);
+
+
                     goNext();
                     return true;
                 }
@@ -343,5 +350,6 @@ public class CenterAuthWebViewFragment extends AbstractCenterAuthMainFragment {
 
     void goNext() {
         startFragment(CenterAuthTokenRequestFragment.class, args, R.string.fragment_id_token);
+
     }
 }

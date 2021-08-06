@@ -34,6 +34,8 @@ import com.kftc.openbankingsample2.common.util.TwoString;
 import com.kftc.openbankingsample2.common.util.Utils;
 import com.kftc.openbankingsample2.common.util.view.KmUtilMoneyEditText;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -53,7 +55,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
     private View view;
     private View view2;
     private View view3;
-    public String coin ;
+    public static String coin2;
 
     // data
     private Bundle args;
@@ -66,7 +68,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
         context = getContext();
         args = getArguments();
         if (args == null) args = new Bundle();
-        this.coin= super.coin;
+
     }
 
     @Nullable
@@ -78,6 +80,9 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
     }
 
     private void initView() {
+        coin2= super.coin;
+        TextView txtCoin = view.findViewById(R.id.textBalance);
+        txtCoin.setText("잔액:"+coin2);
         view2 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_withdraw,null,false);
         view3 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_self_withdraw,null,false);
         // 계좌등록
@@ -99,10 +104,10 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
         TextView bal = view.findViewById(R.id.textBalance);
         String bal2 = (String) bal.getText();
         view.findViewById(R.id.btnTrnsWDPage).setOnClickListener(v ->{
-            showAlert("잔액:",bal2);
             setRandomBankTranId(etBankTranId);
             startFragment(CenterAuthAPITransferWithdrawFragment.class, args, R.string.fragment_id_api_call_withdraw);
         });
+
         //수동이체
         EditText etBankTranSelfId = view3.findViewById(R.id.etBankTranId);
         view.findViewById(R.id.btnSelfWithdraw).setOnClickListener(v -> {

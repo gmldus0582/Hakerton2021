@@ -7,7 +7,7 @@
     <!--서브타이틀-->
     <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
         <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
-            android:text="계좌등록 및 토큰발급"/>
+            />
     </LinearLayout>
 
     <!--메인-->
@@ -36,7 +36,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
-                android:text="기존 계좌확인 후 토큰발급" />
+                android:text="계좌 확인 및 본인 인증" />
 
 <!--            <Button-->
 <!--                android:id="@+id/btnAuthToken"-->

@@ -45,6 +45,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import timber.log.Timber;
+import java.lang.*;
 
 /**
  * 모든 프래그먼트의 추상 클래스
@@ -56,8 +57,9 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
     protected MainActivity activity;
     private View view;
 
-   public String coin;
-
+    public static String coin;
+   //char [] coin2 = new char[50];
+    String coin2;
 
     // progress
     private KmProgressBar progressBar;
@@ -270,7 +272,6 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
     // 통신처리
     protected void handleHttpSuccess(Response<Map> response, String key, String desc, boolean enableAlert, NetListener listener) {
         String responseJson = new Gson().toJson(response.body());
-
         // TODO: 2019-09-09 토큰유효시간이 지난 오류일경우, 개발자는 refresh token 을 사용해서 신규 access token을 발급받는 절차를 수행햐야함.
 
         // json 안에 있는 응답코드를 확인
@@ -309,9 +310,10 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
 
                     if (key.contains("balance_amt")) {
                         value = Utils.moneyForm(value)+"원";
+                        //value.getChars(0,value.length()-1,coin2,0);
                         coin = value;
                     } else{
-                        value = value.substring(value.length() - 3, value.length());
+                        value = Utils.moneyForm(value)+"원 이체 완료";
                     }
 
                 }
@@ -323,8 +325,7 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
                 if (listener == null) {
                     if(value.substring(value.length()-1).equals("원")){
                         TextView txt = activity.findViewById(R.id.textBalance);
-                        txt.setText(desc+":"+value);
-
+                        txt.setText(desc+":"+coin);
                     }
                     else{
                         showAlert("정상", desc + ": " + value, responseJson);
@@ -349,8 +350,8 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
                 }
             }
         }
-
     }
+
 
     // 토큰저장은 센터인증, 자체인증을 나눠서 하위 클래스에서 저장
     abstract protected void saveAuthData(String responseJson);
@@ -363,6 +364,7 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
     // 경고창
     protected void showAlert(String title, String msg, String detailMsg) {
         showAlert(title, msg, detailMsg, null);
+        System.out.println(coin);
     }
 
     // 경고창

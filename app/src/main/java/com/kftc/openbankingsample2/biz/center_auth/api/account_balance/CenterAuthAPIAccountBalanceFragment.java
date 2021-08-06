@@ -94,15 +94,15 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
         etTranDtime.setText(new SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA).format(new Date()));
 
         // 잔액조회 요청
-        view.findViewById(R.id.btnNext).setOnClickListener(v -> startFragment(HomeFragment.class, args, R.string.fragment_id_home));
+        view.findViewById(R.id.btnNext).setOnClickListener(v -> {
+            startFragment(HomeFragment.class, args, R.string.fragment_id_home);
+            //직전내용 저장
+            String accessToken = etToken.getText().toString().trim();
+            Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
+            String fintechUseNum = etFintechUseNum.getText().toString();
+            Utils.saveData(CenterAuthConst.CENTER_AUTH_FINTECH_USE_NUM, fintechUseNum);
 
-            // 직전내용 저장
-//            String accessToken = etToken.getText().toString().trim();
-//            Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
-//            String fintechUseNum = etFintechUseNum.getText().toString();
-//            Utils.saveData(CenterAuthConst.CENTER_AUTH_FINTECH_USE_NUM, fintechUseNum);
-//
-//            // 요청전문
+            // 요청전문
 //            HashMap<String, String> paramMap = new HashMap<>();
 //            paramMap.put("bank_tran_id", etBankTranId.getText().toString());
 //            paramMap.put("fintech_use_num", fintechUseNum);
@@ -112,6 +112,10 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
 //            CenterAuthApiRetrofitAdapter.getInstance()
 //                    .accountBalanceFinNum("Bearer " + accessToken, paramMap)
 //                    .enqueue(super.handleResponse("balance_amt", "잔액"));
+
+        });
+
+
 
 
 
