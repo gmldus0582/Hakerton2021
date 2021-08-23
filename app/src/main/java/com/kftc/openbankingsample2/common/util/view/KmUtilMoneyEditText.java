@@ -14,7 +14,7 @@ import timber.log.Timber;
 /**
  * EditText를 천단위 마다 쉼표로 나타냄(원단위)
  */
-public class KmUtilMoneyEditText extends EditText implements TextWatcher/*, View.OnTouchListener, View.OnFocusChangeListener */{
+public class KmUtilMoneyEditText extends androidx.appcompat.widget.AppCompatEditText implements TextWatcher/*, View.OnTouchListener, View.OnFocusChangeListener */{
 
     // 세자리로 끊어서 쉼표 보여준다
     DecimalFormat df = new DecimalFormat("###,###");

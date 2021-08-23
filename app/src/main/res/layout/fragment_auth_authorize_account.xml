@@ -10,7 +10,7 @@
     </LinearLayout>
 
     <!--메인-->
-    <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
+    <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView" android:background="#a890fe">
         <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
 
             <androidx.fragment.app.FragmentTabHost
@@ -26,7 +26,8 @@
                     <TabWidget
                         android:id="@android:id/tabs"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
 
                     <FrameLayout
                         android:id="@android:id/tabcontent"

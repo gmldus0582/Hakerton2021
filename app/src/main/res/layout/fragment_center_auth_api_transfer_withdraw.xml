@@ -2,12 +2,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#a890fe">
 
     <!--메인-->
-    <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
-
+            <com.github.mmin18.widget.RealtimeBlurView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:realtimeBlurRadius="10dp"
+                app:realtimeOverlayColor="#8000"/>
             <TableLayout
                 android:id="@+id/tableLayout1"
                 android:layout_width="match_parent"
@@ -123,6 +130,7 @@
                             android:layout_marginRight="3dp"
                             android:text="선택" />
                     </LinearLayout>
+
                 </TableRow>
 
                 <TableRow
@@ -294,12 +302,57 @@
             </TableLayout>
 
         </LinearLayout>
-    </ScrollView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/button_round_blue"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/handtwo"
+                android:layout_width="198dp"
+                android:layout_height="144dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/handtwo"></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="기부 완료 !!"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/blackhansans_regular"
+                android:textSize="50dp"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"></TextView>
+
+            <Button
+                android:id="@id/btnNext"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_round"
+                android:text="확인"
+                android:fontFamily="@font/notoxanscjkkr_bold"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                android:textAlignment="center"></Button>
+
+        </LinearLayout>
+    </FrameLayout>
     <!--하단버튼-->
     <LinearLayout android:id="@+id/llBottomButton" style="@style/BottomButtonLayout">
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="10dp"
+            app:realtimeOverlayColor="#8000"/>
         <Button android:id="@+id/btnCancel" style="@style/BottomCancelButton"/>
-        <Button android:id="@+id/btnNext" style="@style/BottomNextButton"/>
+<!--        <Button android:id="@+id/btnNext" style="@style/BottomNextButton"/>-->
     </LinearLayout>
 
 </RelativeLayout>

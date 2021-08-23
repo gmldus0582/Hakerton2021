@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
 import com.kftc.openbankingsample2.biz.main.HomeFragment;
 import com.kftc.openbankingsample2.common.Scope;
 import com.kftc.openbankingsample2.common.application.AppData;
+import com.kftc.openbankingsample2.common.data.BankAccount;
 import com.kftc.openbankingsample2.common.util.Utils;
 
 import java.text.SimpleDateFormat;
@@ -57,6 +60,8 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
         context = getContext();
         args = getArguments();
         if (args == null) args = new Bundle();
+
+
     }
 
     @Nullable
@@ -64,6 +69,7 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_center_auth_api_account_balance, container, false);
         initView();
+
         return view;
     }
 
@@ -86,8 +92,16 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
         etFintechUseNum.setText(Utils.getSavedValue(CenterAuthConst.CENTER_AUTH_FINTECH_USE_NUM));
 
         // 핀테크이용번호 : 기존 계좌에서 선택
-        View.OnClickListener onClickListener = v -> showAccountDialog(etFintechUseNum);
-        view.findViewById(R.id.btnSelectFintechUseNum).setOnClickListener(onClickListener);
+        //View.OnClickListener onClickListener = v -> showAccountDialog(etFintechUseNum);
+
+
+        view.findViewById(R.id.btnSelectFintechUseNum).setOnClickListener(v->{
+            showAccountDialog(etFintechUseNum);
+        });
+
+
+
+
 
         // 거래일시
         EditText etTranDtime = view.findViewById(R.id.etTranDtime);
@@ -114,10 +128,6 @@ public class CenterAuthAPIAccountBalanceFragment extends AbstractCenterAuthMainF
 //                    .enqueue(super.handleResponse("balance_amt", "잔액"));
 
         });
-
-
-
-
 
         // 취소
         view.findViewById(R.id.btnCancel).setOnClickListener(v -> onBackPressed());

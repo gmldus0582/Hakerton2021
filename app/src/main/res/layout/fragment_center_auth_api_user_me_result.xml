@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#a890fe">
 
     <!--메인-->
     <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
@@ -18,7 +19,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
                 <TextView
                     android:layout_weight="1"
                     style="@style/FormLabel01"
@@ -44,7 +46,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
                 <TextView
                     android:layout_weight="1"
                     style="@style/FormLabel01"
@@ -70,7 +73,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
                 <TextView
                     android:layout_weight="1"
                     style="@style/FormLabel01"
@@ -111,9 +115,11 @@
     </ScrollView>
 
     <!--하단버튼-->
-    <LinearLayout android:id="@+id/llBottomButton" style="@style/BottomButtonLayout">
+    <LinearLayout android:id="@+id/llBottomButton" style="@style/BottomButtonLayout" android:gravity="center">
         <Button android:id="@+id/btnCancel" style="@style/BottomCancelButton" android:visibility="gone"/>
-        <Button android:id="@+id/btnNext" style="@style/BottomNextButton"/>
+        <Button android:id="@+id/btnNext" android:textColor="#ffffff" android:background="@drawable/button_round"
+
+            android:layout_width="300dp" android:layout_height="50dp" android:text="확인" android:fontFamily="@font/notoxanscjkkr_bold" android:textSize="20dp" android:textAlignment="center" />
     </LinearLayout>
 
 </RelativeLayout>

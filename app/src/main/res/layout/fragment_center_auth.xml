@@ -2,17 +2,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#a890fe">
 
     <!--서브타이틀-->
-    <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
+    <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout" android:background="#a890fe">
         <TextView android:id="@+id/tvSubTitle" style="@style/SubTitleText"
             />
     </LinearLayout>
 
     <!--메인-->
     <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
-        <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
+        <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout" android:gravity="center">
 
 <!--            <Button-->
 <!--                android:id="@+id/btnAuthNewWebAuth2"-->
@@ -29,14 +30,17 @@
             <Button
                 android:id="@+id/btnAuthNewWebAuthAcnt2"
                 style="@style/Button01"
+                android:background="@drawable/button_round"
                 android:layout_width="280dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:text="계좌 확인 및 본인 인증" />
+                android:layout_marginBottom="40dp"
+                android:text="본인 인증"
+                android:fontFamily="@font/notoxanscjkkr_bold"
+                android:textSize="18dp"/>
 
 <!--            <Button-->
 <!--                android:id="@+id/btnAuthToken"-->

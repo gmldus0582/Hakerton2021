@@ -35,6 +35,10 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     public static String coin1;
     private View view;
 
+    public static int sum = 2890;
+    public static String inp="asdf";
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

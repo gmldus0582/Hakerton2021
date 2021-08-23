@@ -5,56 +5,71 @@
     android:layout_height="match_parent">
 
     <!--메인-->
-    <ScrollView android:id="@+id/svMainScroll" style="@style/MainScrollView">
-        <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout">
-            <Button
 
+        <LinearLayout android:id="@+id/llMainLayout" style="@style/MainLayout" android:background="@drawable/gradient">
+
+            <Button
+                android:id="@+id/btnOwnSet"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="hihi"
+                android:visibility="gone"></Button>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:text="WING FOR GIRL"
+                android:textStyle="normal"
+                android:textSize="45dp"
+                android:fontFamily="@font/blackhansans_regular"
+                android:textColor="#ffffff"
+                android:gravity="center_vertical"
+                />
+
+
+
+            <Button
                 android:id="@+id/btnAuthToken"
                 style="@style/Button01"
-                android:layout_marginTop="300dp"
-                android:layout_width="280dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="10dp"
-                android:text="로그인"
-                android:textSize="25sp"/>
+                android:layout_marginTop="200dp"
+                android:layout_width="240dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_round"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:fontFamily="@font/notoxanscjkkr_bold"
+                android:textColor="#ffffff"
+                android:text="로그인" />
+            />
 
             <EditText
                 android:id="@+id/etToken"
                 style="@style/FormValue02"
                 android:inputType="text"
                 android:maxLines="1" />
-<!--            <Button-->
-<!--                android:layout_marginTop="50dp"-->
-<!--                android:id="@+id/btnCenterAuth"-->
-<!--                style="@style/Button01"-->
-<!--                android:layout_width="280dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:textSize="25sp"-->
-<!--                android:text="로그인"/>-->
 
-<!--            <Button-->
-<!--                android:id="@+id/btnSelectToken"-->
-<!--                style="@style/Button01"-->
-<!--                android:layout_width="50dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_marginStart="1dp"-->
-
-<!--                android:text="선택" />-->
             <Button
                 android:id="@+id/btnInqrUserInfoPage"
                 style="@style/Button01"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
+                android:layout_width="240dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="500dp"
-                android:text="계좌선택"
-                android:textSize="18sp" />
+                android:layout_marginBottom="400dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/button_round"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:fontFamily="@font/notoxanscjkkr_bold"
+                android:textColor="#ffffff"
+                android:text="계좌선택"/>
+
+
 
         </LinearLayout>
-    </ScrollView>
 
     <!--하단버튼-->
     <LinearLayout android:id="@+id/llBottomButton" style="@style/BottomButtonLayout" android:visibility="gone">
@@ -62,14 +77,5 @@
         <Button android:id="@+id/btnNext" style="@style/BottomNextButton"/>
     </LinearLayout>
 
-    <!--하단버전-->
-<!--    <TextView-->
-<!--        android:id="@+id/tvVersion"-->
-<!--        android:textSize="20sp"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginBottom="20dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"/>-->
 
 </RelativeLayout>

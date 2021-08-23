@@ -59,8 +59,6 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
 
     public static String coin;
    //char [] coin2 = new char[50];
-    String coin2;
-
     // progress
     private KmProgressBar progressBar;
 
@@ -325,14 +323,16 @@ public abstract class AbstractMainFragment extends Fragment implements onKeyBack
                 if (listener == null) {
                     if(value.substring(value.length()-1).equals("원")){
                         TextView txt = activity.findViewById(R.id.textBalance);
-                        txt.setText(desc+":"+coin);
+                        coin = coin.substring(coin.length()-4, coin.length());
+                        txt.setText(coin);
                     }
                     else{
-                        showAlert("정상", desc + ": " + value, responseJson);
+                        //showAlert("정상", desc + ": " + value, responseJson);
                     }
                 } else {
-                    showAlert("정상", desc + ": " + value, responseJson,
-                            (dialog, which) -> listener.onSuccess(responseJson));
+//                    showAlert("정상", desc + ": " + value, responseJson,
+//                        (dialog, which) -> listener.onSuccess(responseJson));
+                    listener.onSuccess(responseJson);
                 }
             } else if (!TextUtils.isEmpty(desc)) {
                 if (listener == null) {

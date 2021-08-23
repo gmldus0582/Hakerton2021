@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#a890fe">
 
     <!--서브타이틀-->
     <LinearLayout android:id="@+id/llSubTitle" style="@style/SubTitleLayout">
@@ -24,20 +25,23 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
                 <TextView
                     android:layout_weight="3"
                     style="@style/FormLabel01"
                     android:layout_width="0dp"
                     android:gravity="center_vertical"
-                    android:text="고객명" />
+                    android:text="고객명"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/tvUserName"
                     android:layout_width="0dp"
                     android:ellipsize="marquee"
                     android:layout_weight="4"
                     style="@style/FormValue01"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:visibility="gone"/>
             </LinearLayout>
 
             <LinearLayout
@@ -49,13 +53,15 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
                 <TextView
                     android:layout_weight="3"
                     style="@style/FormLabel01"
                     android:layout_width="0dp"
                     android:gravity="center_vertical"
-                    android:text="등록계좌수" />
+                    android:text="등록계좌수"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/tvResCnt"
                     android:layout_width="0dp"
@@ -92,7 +98,7 @@
     <!--하단버튼-->
     <LinearLayout android:id="@+id/llBottomButton" style="@style/BottomButtonLayout">
         <Button android:id="@+id/btnCancel" style="@style/BottomCancelButton" android:visibility="gone"/>
-        <Button android:id="@+id/btnNext" style="@style/BottomNextButton"/>
+        <Button android:id="@+id/btnNext" style="@style/BottomNextButton" android:visibility="gone"/>
     </LinearLayout>
 
 </RelativeLayout>

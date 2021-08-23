@@ -24,7 +24,10 @@ import com.kftc.openbankingsample2.biz.center_auth.CenterAuthHomeFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.user_me.CenterAuthAPIUserMeRequestFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.user_me.CenterAuthAPIUserMeResultFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.CenterAuthFragment;
+import com.kftc.openbankingsample2.biz.center_auth.auth.authorize.CenterAuthAuthorizeCase1ChildFragment;
+import com.kftc.openbankingsample2.biz.center_auth.auth.authorize_account.CenterAuthAuthorizeAccountFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
+import com.kftc.openbankingsample2.biz.center_auth.setting.CenterAuthSettingFragment;
 import com.kftc.openbankingsample2.biz.self_auth.SelfAuthHomeFragment;
 
 import java.text.SimpleDateFormat;
@@ -53,6 +56,7 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
     private View view;
     private View view2;
     private View view3;
+    private View view4;
 
     // data
     private Bundle args;
@@ -76,12 +80,6 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
         return view;
 
     }
-//    public View onCreateView2(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//
-//        initView();
-//        return view2;
-//
-//    }
 
     private void initView() {
         // 로그인
@@ -106,6 +104,7 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
         View.OnClickListener onClickListener = v -> showAccountDialog(etFintechUseNum);
         view2.findViewById(R.id.btnSelectFintechUseNum).setOnClickListener(onClickListener);
 
+
         // 거래일시
         EditText etTranDtime = view2.findViewById(R.id.etTranDtime);
         etTranDtime.setText(new SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA).format(new Date()));
@@ -124,13 +123,17 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
         //계좌등록
         String strToken = etToken.getText().toString();
 
+
         if(strToken.length()==1){
 
-            view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth));
+            view.findViewById(R.id.btnOwnSet).setOnClickListener(v->startFragment(CenterAuthSettingFragment.class, args, R.string.fragment_id_center_auth_setting));
+
+            view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthAuthorizeAccountFragment.class, args, R.string.fragment_id_auth_authorize_account));
             view.findViewById(R.id.btnInqrUserInfoPage).setOnClickListener(v -> showAlert("error","본인인증이 필요합니다."));
 
         }
         else{
+            view.findViewById(R.id.btnOwnSet).setOnClickListener(v->startFragment(CenterAuthSettingFragment.class, args, R.string.fragment_id_center_auth_setting));
 
             view.findViewById(R.id.btnAuthToken).setOnClickListener(v->{
                 startFragment(CenterAuthHomeFragment.class, args, R.string.fragment_id_center);
@@ -159,6 +162,8 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
                 String userSeqNo = etUserSeqNo.getText().toString().trim();
                 Utils.saveData(CenterAuthConst.CENTER_AUTH_USER_SEQ_NO, userSeqNo);
 
+
+
                 HashMap<String, String> paramMap = new HashMap<>();
                 paramMap.put("user_seq_no", userSeqNo);
 
@@ -173,6 +178,7 @@ public class HomeFragment extends AbstractCenterAuthMainFragment {
                                     goNext();
                                 })
                         );
+
             });
 
 

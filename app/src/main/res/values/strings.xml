@@ -3,10 +3,11 @@
 
     <string name="fragment_id_navi" translatable="false">navigation</string>
     <string name="fragment_id_main" translatable="false">오픈뱅킹샘플</string>
-    <string name="fragment_id_home" translatable="false">로그인</string>
+    <string name="fragment_id_home" translatable="false"></string>
+    <string name="fragment_mypage" translatable="false">마이페이지</string>
     <string name="fragment_id_center" translatable="false">메인홈</string>
     <string name="fragment_id_self" translatable="false">자체인증 메인홈</string>
-    <string name="fragment_id_center_auth" translatable="false">계좌 확인 및 본인 인증</string>
+    <string name="fragment_id_center_auth" translatable="false">본인 인증</string>
     <string name="fragment_id_self_auth" translatable="false">자체인증 계좌등록 및 토큰발급</string>
     <string name="fragment_id_auth_authorize" translatable="false">사용자인증</string>
     <string name="fragment_id_auth_authorize_account" translatable="false">본인인증</string>
@@ -15,7 +16,7 @@
     <string name="fragment_id_self_api_call" translatable="false">자체인증 API호출</string>
     <string name="fragment_id_api_call_userme" translatable="false">계좌선택</string>
     <string name="fragment_id_api_call_balance" translatable="false">계좌선택</string>
-    <string name="fragment_id_api_call_transaction" translatable="false">거래내역조회</string>
+    <string name="fragment_id_api_call_transaction" translatable="false">기부내역</string>
     <string name="fragment_id_api_call_withdraw" translatable="false">잔액이체</string>
     <string name="fragment_id_api_call_auto" translatable="false">자동이체</string>
     <string name="fragment_id_api_call_realname" translatable="false">계좌실명조회</string>

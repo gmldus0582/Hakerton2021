@@ -51,7 +51,7 @@ public class AbstractCenterAuthAuthorizeCaseFragment extends AbstractCenterAuthM
     }
 
     // scope 선택버튼 등 초기화
-    void initButton(View view) {
+    public void initButton(View view) {
 
         // scope
         et_ANW_SCOPE = view.findViewById(R.id.et_ANW_SCOPE);

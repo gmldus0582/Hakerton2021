@@ -17,6 +17,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
+import com.kftc.openbankingsample2.biz.center_auth.CenterAuthHomeFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
 import com.kftc.openbankingsample2.common.Scope;
@@ -24,6 +25,8 @@ import com.kftc.openbankingsample2.common.application.AppData;
 import com.kftc.openbankingsample2.common.util.TwoString;
 import com.kftc.openbankingsample2.common.util.Utils;
 import com.kftc.openbankingsample2.common.util.view.KmUtilMoneyEditText;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,20 +40,25 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
 
     // view
     private View view;
-    String coin;
+    private View view2;
+    public static String inp3;
 
     // data
     private Bundle args;
     private String cntrAccountType;
     private String transferPurpose;
+    public static int sum2=0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
         args = getArguments();
-        coin = super.coin;
+
         if (args == null) args = new Bundle();
+        sum2 = super.sum;
+
+
     }
 
     @Nullable
@@ -66,6 +74,9 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
 
 
         // access_token : 가장 최근 액세스 토큰으로 기본 설정
+        inp3 = super.inp;
+        TextView no = view.findViewById(R.id.moneyTranAmt);
+        no.setText(inp3);
         EditText etToken = view.findViewById(R.id.etToken);
         etToken.setText(AppData.getCenterAuthAccessToken(Scope.TRANSFER));
 
@@ -116,8 +127,8 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
 
         // 거래금액
 
-        //showAlert("coin:", coin);
-        KmUtilMoneyEditText moneyTranAmt = view.findViewById(R.id.moneyTranAmt);
+
+        TextView moneyTranAmt = view.findViewById(R.id.moneyTranAmt);
 
         // 요청일시
         EditText etTranDtime = view.findViewById(R.id.etTranDtime);
@@ -204,7 +215,7 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
             paramMap.put("cntr_account_num", etCntrAccountNum.getText().toString());
             paramMap.put("dps_print_content", etDpsPrintContent.getText().toString());
             paramMap.put("fintech_use_num", fintechUseNum);
-            paramMap.put("tran_amt", moneyTranAmt.getTextString());     // 쉼표(,)를 제외하고 추출
+            paramMap.put("tran_amt", moneyTranAmt.getText().toString());     // 쉼표(,)를 제외하고 추출
             paramMap.put("tran_dtime", etTranDtime.getText().toString());
             paramMap.put("req_client_name", reqClientName);
             paramMap.put("req_client_bank_code", reqClientBankCode);
@@ -222,6 +233,11 @@ public class CenterAuthAPITransferSelfWithdrawFragment extends AbstractCenterAut
             CenterAuthApiRetrofitAdapter.getInstance()
                     .transferWithdrawFinNum("Bearer " + accessToken, paramMap)
                     .enqueue(super.handleResponse("tran_amt", "금액"));
+            String strCoin = moneyTranAmt.getText().toString();
+            int i  = Integer.parseInt(strCoin);
+            sum2=sum2+i;
+            super.sum = sum2;
+            startFragment(CenterAuthHomeFragment.class, args, R.string.fragment_id_center);
         });
 
         // 취소

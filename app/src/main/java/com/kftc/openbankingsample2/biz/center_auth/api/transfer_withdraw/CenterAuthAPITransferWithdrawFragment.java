@@ -17,6 +17,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
+import com.kftc.openbankingsample2.biz.center_auth.CenterAuthHomeFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
 import com.kftc.openbankingsample2.common.Scope;
@@ -33,7 +34,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * 출금이체
+ * 잔액 이체
  */
 public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMainFragment {
 
@@ -42,6 +43,7 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
 
     // view
     private View view;
+    private View view2;
 
 
     // data
@@ -49,12 +51,14 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
     private String cntrAccountType;
     private String transferPurpose;
     public static String coin3;
+    public static int sum1=0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
         args = getArguments();
+        sum1 = super.sum;
 
 
         if (args == null) args = new Bundle();
@@ -70,6 +74,8 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
 
     void initView() {
         coin3 = super.coin;
+        view2 = getLayoutInflater().inflate(R.layout.fragment_center_auth_home,null,false);
+
         // access_token : 가장 최근 액세스 토큰으로 기본 설정
         EditText etToken = view.findViewById(R.id.etToken);
         etToken.setText(AppData.getCenterAuthAccessToken(Scope.TRANSFER));
@@ -187,6 +193,7 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
         view.findViewById(R.id.btnNext).setOnClickListener(v -> {
 
             // 직전내용 저장
+
             String accessToken = etToken.getText().toString().trim();
             Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
             String cntrAccountNum = etCntrAccountNum.getText().toString();
@@ -223,9 +230,18 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
             paramMap.put("recv_client_account_num", etRecvClientAccountNum.getText().toString());
 
             showProgress();
+
             CenterAuthApiRetrofitAdapter.getInstance()
                     .transferWithdrawFinNum("Bearer " + accessToken, paramMap)
                     .enqueue(super.handleResponse("tran_amt", "금액"));
+
+            int i =Integer.parseInt(coin3.substring(0,coin3.length()-1));
+            sum1=sum1+i;
+            super.sum = sum1;
+
+            startFragment(CenterAuthHomeFragment.class, args, R.string.fragment_id_center);
+
+
         });
 
         // 취소

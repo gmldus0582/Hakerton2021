@@ -43,6 +43,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+
 /**
  * 센터인증 메인화면
  */
@@ -56,6 +59,9 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
     private View view2;
     private View view3;
     public static String coin2;
+    public static int sum2;
+    public static String inp2;
+
 
     // data
     private Bundle args;
@@ -69,6 +75,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
         args = getArguments();
         if (args == null) args = new Bundle();
 
+
     }
 
     @Nullable
@@ -81,10 +88,16 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
 
     private void initView() {
         coin2= super.coin;
+        sum2 = super.sum;
+        inp2 = super.inp;
         TextView txtCoin = view.findViewById(R.id.textBalance);
-        txtCoin.setText("잔액:"+coin2);
+        TextView txtSum = view.findViewById(R.id.textSum);
+        txtCoin.setText(coin2);
+        txtSum.setText(String.valueOf(sum2)+"원");
+
         view2 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_withdraw,null,false);
         view3 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_self_withdraw,null,false);
+
         // 계좌등록
         //view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth));
 
@@ -97,7 +110,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
         //view.findViewById(R.id.btnInqrBlncPage).setOnClickListener(v -> startFragment(CenterAuthAPIAccountBalanceFragment.class, args, R.string.fragment_id_api_call_balance));
 
         // 거래내역조회
-        view.findViewById(R.id.btnInqrTranRecPage).setOnClickListener(v -> startFragment(CenterAuthAPIAccountTransactionRequestFragment.class, args, R.string.fragment_id_api_call_transaction));
+        //view.findViewById(R.id.btnInqrTranRecPage).setOnClickListener(v -> startFragment(CenterAuthAPIAccountTransactionRequestFragment.class, args, R.string.fragment_id_api_call_transaction));
 
         //잔액 이체
         EditText etBankTranId = view2.findViewById(R.id.etBankTranId);
@@ -108,10 +121,99 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
             startFragment(CenterAuthAPITransferWithdrawFragment.class, args, R.string.fragment_id_api_call_withdraw);
         });
 
+        //다이얼
+        TextView dial = view.findViewById(R.id.inputMoney);
+            view.findViewById(R.id.one).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+
+                }
+                dial.append("1");
+            });
+            view.findViewById(R.id.two).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+                dial.append("2");
+            });
+            view.findViewById(R.id.three).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+                dial.append("3");
+            });
+            view.findViewById(R.id.four).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+
+                dial.append("4");
+            });
+            view.findViewById(R.id.five).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+
+                dial.append("5");
+            });
+            view.findViewById(R.id.six).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+
+                dial.append("6");
+            });
+            view.findViewById(R.id.seven).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+
+                dial.append("7");
+            });
+            view.findViewById(R.id.eight).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+
+                dial.append("8");
+            });
+            view.findViewById(R.id.nine).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+
+                dial.append("9");
+            });
+            view.findViewById(R.id.zero).setOnClickListener(v ->{
+                if(dial.getText().equals("기부 금액 입력")){
+                    dial.setText("");
+                }
+
+                dial.append("0");
+            });
+        view.findViewById(R.id.reset).setOnClickListener(v ->{
+            dial.setText(" ");
+        });
+        view.findViewById(R.id.del).setOnClickListener(v ->{
+            String dialDel = dial.getText().toString();
+            dial.setText(dialDel.substring(0,dialDel.length()-1));
+        });
+
+
+
         //수동이체
+        //TextView coinTran = view3.findViewById(R.id.moneyTranAmt);
         EditText etBankTranSelfId = view3.findViewById(R.id.etBankTranId);
+
         view.findViewById(R.id.btnSelfWithdraw).setOnClickListener(v -> {
             startFragment(CenterAuthAPITransferSelfWithdrawFragment.class, args, R.string.fragment_id_api_call_self_withdraw);
+//            View dialogView = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_self_withdraw, null);
+//            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activity.getApplicationContext());
+//            bottomSheetDialog.setContentView(dialogView);
+//            bottomSheetDialog.show();
+            inp2 = dial.getText().toString();
+            super.inp = inp2;
+            //coinTran.setText("123");
             setRandomBankTranId(etBankTranSelfId);
         });
 

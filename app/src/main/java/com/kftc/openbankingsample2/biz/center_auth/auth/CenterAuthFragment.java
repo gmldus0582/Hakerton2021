@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthHomeFragment;
+import com.kftc.openbankingsample2.biz.center_auth.auth.authorize.AbstractCenterAuthAuthorizeCaseFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.authorize.CenterAuthAuthorizeFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.authorize_account.CenterAuthAuthorizeAccountFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.oob.CenterAuthTokenRequestOobFragment;
@@ -20,7 +21,7 @@ import com.kftc.openbankingsample2.biz.main.HomeFragment;
 /**
  * 센터인증 메뉴
  */
-public class CenterAuthFragment extends AbstractCenterAuthMainFragment {
+public class CenterAuthFragment extends AbstractCenterAuthAuthorizeCaseFragment {
 
     // context
     private Context context;

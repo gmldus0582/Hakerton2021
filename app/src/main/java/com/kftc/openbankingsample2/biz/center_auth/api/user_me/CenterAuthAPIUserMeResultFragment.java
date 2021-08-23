@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,10 +19,19 @@ import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragmen
 import com.kftc.openbankingsample2.biz.center_auth.CenterAuthConst;
 import com.kftc.openbankingsample2.biz.center_auth.api.CenterAuthAPIFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.account_balance.CenterAuthAPIAccountBalanceFragment;
+import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
+import com.kftc.openbankingsample2.biz.main.HomeFragment;
+import com.kftc.openbankingsample2.common.Scope;
+import com.kftc.openbankingsample2.common.application.AppData;
 import com.kftc.openbankingsample2.common.data.ApiCallUserMeResponse;
 import com.kftc.openbankingsample2.common.util.Utils;
 import com.kftc.openbankingsample2.common.util.view.recyclerview.KmRecyclerViewDividerHeight;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * 사용자정보조회 결과
@@ -33,6 +43,7 @@ public class CenterAuthAPIUserMeResultFragment extends AbstractCenterAuthMainFra
 
     // view
     private View view;
+
     private RecyclerView recyclerView;
     private CenterAuthAPIUserMeResultAdapter adapter;
 
@@ -70,7 +81,9 @@ public class CenterAuthAPIUserMeResultFragment extends AbstractCenterAuthMainFra
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.addItemDecoration(new KmRecyclerViewDividerHeight(30));
 
-        view.findViewById(R.id.btnNext).setOnClickListener(v -> startFragment(CenterAuthAPIAccountBalanceFragment.class, args, R.string.fragment_id_api_call_balance));
+
+
+        view.findViewById(R.id.btnNext).setOnClickListener(v ->startFragment(CenterAuthAPIAccountBalanceFragment.class, args, R.string.fragment_id_api_call_balance));
 
         initData();
     }
