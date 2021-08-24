@@ -125,7 +125,7 @@
                 android:text="계좌 선택" />
 
             <Button
-                android:id="@+id/BottomNextButton"
+                android:id="@+id/btnNext"
                 style="@style/ButtonFold"
                 android:layout_width="240dp"
                 android:layout_height="50dp"
@@ -140,7 +140,7 @@
     <!--하단버튼-->
     <LinearLayout android:id="@+id/llBottomButton" style="@style/BottomButtonLayout" android:visibility="gone">
         <Button android:id="@+id/btnCancel" style="@style/BottomCancelButton"/>
-        <Button android:id="@+id/btnNext" style="@style/BottomNextButton" />
+<!--        <Button android:id="@+id/btnNext" style="@style/BottomNextButton" />-->
     </LinearLayout>
 
 </RelativeLayout>
