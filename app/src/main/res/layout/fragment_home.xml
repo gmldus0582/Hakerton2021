@@ -24,8 +24,19 @@
                 android:textSize="45dp"
                 android:fontFamily="@font/blackhansans_regular"
                 android:textColor="#ffffff"
+                android:layout_marginBottom="30dp"
                 android:gravity="center_vertical"
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="for contributor"
+                android:textSize="25dp"
+                android:textColor="#ffffff"
+                android:layout_marginBottom="30dp"
+                android:textStyle="normal"
+                android:fontFamily="@font/blackhansans_regular"></TextView>
 
 
 
