@@ -18,7 +18,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="70dp"
                 android:text="WING FOR GIRL"
                 android:textStyle="normal"
                 android:textSize="45dp"
@@ -38,12 +38,17 @@
                 android:textStyle="normal"
                 android:fontFamily="@font/blackhansans_regular"></TextView>
 
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:src="@drawable/logo2">
 
+            </ImageView>
 
             <Button
                 android:id="@+id/btnAuthToken"
                 style="@style/Button01"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="60dp"
                 android:layout_width="240dp"
                 android:layout_height="50dp"
                 android:background="@drawable/button_round"

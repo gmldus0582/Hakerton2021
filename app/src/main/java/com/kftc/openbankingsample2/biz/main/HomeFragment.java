@@ -28,7 +28,7 @@ import com.kftc.openbankingsample2.biz.center_auth.auth.authorize.CenterAuthAuth
 import com.kftc.openbankingsample2.biz.center_auth.auth.authorize_account.CenterAuthAuthorizeAccountFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.setting.CenterAuthSettingFragment;
-import com.kftc.openbankingsample2.biz.self_auth.SelfAuthHomeFragment;
+//import com.kftc.openbankingsample2.biz.self_auth.SelfAuthHomeFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,7 +36,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import timber.log.Timber;
 import com.kftc.openbankingsample2.BuildConfig;
 import com.kftc.openbankingsample2.common.Scope;
 import com.kftc.openbankingsample2.common.application.AppData;

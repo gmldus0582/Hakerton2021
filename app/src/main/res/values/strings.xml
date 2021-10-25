@@ -3,7 +3,9 @@
 
     <string name="fragment_id_navi" translatable="false">navigation</string>
     <string name="fragment_id_main" translatable="false">오픈뱅킹샘플</string>
+    <string name="fragment_manage_pws" translatable="false">관리자비밀번호페이지</string>
     <string name="fragment_id_home" translatable="false"></string>
+    <string name="fragment_donate_activity" translatable="false">기부 활동</string>
     <string name="fragment_mypage" translatable="false">마이페이지</string>
     <string name="fragment_id_center" translatable="false">메인홈</string>
     <string name="fragment_id_self" translatable="false">자체인증 메인홈</string>

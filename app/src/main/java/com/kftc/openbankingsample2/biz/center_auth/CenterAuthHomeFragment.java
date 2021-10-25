@@ -18,12 +18,14 @@ import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.api.CenterAuthAPIFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.account_balance.CenterAuthAPIAccountBalanceFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.account_transaction.CenterAuthAPIAccountTransactionRequestFragment;
+import com.kftc.openbankingsample2.biz.center_auth.api.donate_activity.donate_activity;
 import com.kftc.openbankingsample2.biz.center_auth.api.transfer_auto.CenterAuthAPITransferAutoFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.transfer_result.CenterAuthAPITransferResultFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.transfer_withdraw.CenterAuthAPITransferWithdrawFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.user_me.CenterAuthAPIUserMeRequestFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.transfer_self_withdraw.CenterAuthAPITransferSelfWithdrawFragment;
 
+import com.kftc.openbankingsample2.biz.center_auth.api.user_me.CenterAuthAPIUserMeResultFragment;
 import com.kftc.openbankingsample2.biz.center_auth.auth.CenterAuthFragment;
 import com.kftc.openbankingsample2.biz.center_auth.http.CenterAuthApiRetrofitAdapter;
 import com.kftc.openbankingsample2.biz.center_auth.util.CenterAuthUtils;
@@ -58,6 +60,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
     private View view;
     private View view2;
     private View view3;
+    private View view4;
     public static String coin2;
     public static int sum2;
     public static String inp2;
@@ -97,6 +100,7 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
 
         view2 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_withdraw,null,false);
         view3 = getLayoutInflater().inflate(R.layout.fragment_center_auth_api_transfer_self_withdraw,null,false);
+        view4 = getLayoutInflater().inflate(R.layout.fragment_donateactivity,null,false);
 
         // 계좌등록
         //view.findViewById(R.id.btnAuthToken).setOnClickListener(v -> startFragment(CenterAuthFragment.class, args, R.string.fragment_id_center_auth));
@@ -216,6 +220,10 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
             //coinTran.setText("123");
             setRandomBankTranId(etBankTranSelfId);
         });
+
+        //기부활동
+
+        view.findViewById(R.id.btnActivity).setOnClickListener(v->startFragment(donate_activity.class, args, R.string.fragment_donate_activity));
 
         // 이체결과조회
         //view.findViewById(R.id.btnTransferResult).setOnClickListener(v -> startFragment(CenterAuthAPITransferResultFragment.class, args, R.string.fragment_id_api_call_transfer_result));

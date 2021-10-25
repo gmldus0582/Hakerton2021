@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import com.kftc.openbankingsample2.R;
 import com.kftc.openbankingsample2.biz.center_auth.AbstractCenterAuthMainFragment;
 import com.kftc.openbankingsample2.biz.center_auth.api.account_transaction.CenterAuthAPIAccountTransactionRequestFragment;
+import com.kftc.openbankingsample2.biz.center_auth.api.donate_activity.donate_activity;
 
 public class MypageFragment extends AbstractCenterAuthMainFragment {
 

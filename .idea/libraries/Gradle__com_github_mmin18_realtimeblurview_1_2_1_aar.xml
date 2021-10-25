@@ -5,6 +5,10 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7dae7fd690252634e4926eecfb3fdc43/jetified-realtimeblurview-1.2.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7dae7fd690252634e4926eecfb3fdc43/jetified-realtimeblurview-1.2.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7dae7fd690252634e4926eecfb3fdc43/jetified-realtimeblurview-1.2.1/jars/libs/blurimpl.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/959f2cc62ca080b757ac1cfe77eab8a0/jetified-realtimeblurview-1.2.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/959f2cc62ca080b757ac1cfe77eab8a0/jetified-realtimeblurview-1.2.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/959f2cc62ca080b757ac1cfe77eab8a0/jetified-realtimeblurview-1.2.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/959f2cc62ca080b757ac1cfe77eab8a0/jetified-realtimeblurview-1.2.1/jars/libs/blurimpl.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.mmin18/realtimeblurview/1.2.1/c4245fa14a95914521c9666c2782fdbb4ffa85ab/realtimeblurview-1.2.1-javadoc.jar!/" />

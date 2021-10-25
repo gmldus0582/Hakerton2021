@@ -34,7 +34,7 @@ public class AbstractCenterAuthMainFragment extends AbstractMainFragment {
     protected MainActivity activity;
     public static String coin1;
     private View view;
-
+    public static int manageCnt=0;
     public static int sum = 2890;
     public static String inp="asdf";
 
