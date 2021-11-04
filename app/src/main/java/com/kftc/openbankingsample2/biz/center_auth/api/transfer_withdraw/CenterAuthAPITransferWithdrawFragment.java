@@ -193,7 +193,6 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
         view.findViewById(R.id.btnNext).setOnClickListener(v -> {
 
             // 직전내용 저장
-
             String accessToken = etToken.getText().toString().trim();
             Utils.saveData(CenterAuthConst.CENTER_AUTH_ACCESS_TOKEN, accessToken);
             String cntrAccountNum = etCntrAccountNum.getText().toString();
@@ -238,8 +237,10 @@ public class CenterAuthAPITransferWithdrawFragment extends AbstractCenterAuthMai
             int i =Integer.parseInt(coin3.substring(0,coin3.length()-1));
             sum1=sum1+i;
             super.sum = sum1;
-
+            
+            super.coin = "0원";
             startFragment(CenterAuthHomeFragment.class, args, R.string.fragment_id_center);
+
 
 
         });

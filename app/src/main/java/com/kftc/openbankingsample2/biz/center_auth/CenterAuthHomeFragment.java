@@ -119,10 +119,12 @@ public class CenterAuthHomeFragment extends AbstractCenterAuthMainFragment {
         //잔액 이체
         EditText etBankTranId = view2.findViewById(R.id.etBankTranId);
         TextView bal = view.findViewById(R.id.textBalance);
-        String bal2 = (String) bal.getText();
         view.findViewById(R.id.btnTrnsWDPage).setOnClickListener(v ->{
             setRandomBankTranId(etBankTranId);
             startFragment(CenterAuthAPITransferWithdrawFragment.class, args, R.string.fragment_id_api_call_withdraw);
+            //bal.setText("0원");
+            
+
         });
 
         //다이얼

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/chich/AndroidStudioProjects/Hakerton2021/app/src/main/res/layout/fragment_center_auth_api_transfer_withdraw.xml" value="0.1" />
+        <entry key="..\:/Users/chich/AndroidStudioProjects/Hakerton2021/app/src/main/res/layout/fragment_center_auth_home.xml" value="0.1" />
         <entry key="..\:/Users/chich/AndroidStudioProjects/Hakerton2021/app/src/main/res/layout/fragment_donateactivity.xml" value="0.1" />
       </map>
     </option>
