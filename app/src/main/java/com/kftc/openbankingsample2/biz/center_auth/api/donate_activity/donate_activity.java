@@ -52,7 +52,6 @@ public class donate_activity extends AbstractCenterAuthMainFragment {
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl("http://164.125.68.44/dashboard/");
         return view;
-
     }
 
 

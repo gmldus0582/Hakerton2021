@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">WingForGirl for Contributor</string>
+    <string name="app_name" translatable="false">WingForGirl 기부자</string>
 
     <string name="fragment_id_navi" translatable="false">navigation</string>
     <string name="fragment_id_main" translatable="false">오픈뱅킹샘플</string>
